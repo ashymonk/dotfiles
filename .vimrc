@@ -31,7 +31,7 @@ set tabstop=4
 set list
 
 " 不可視文字の表示記号
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:>-,trail:-,eol:~,extends:>,precedes:<,nbsp:%
 
 " }}}
 
