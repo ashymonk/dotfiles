@@ -1,3 +1,4 @@
+# ~/.bash_profile: executed by bash(1) for non-login shells.
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -5,16 +6,16 @@ if [ -n "$BASH_VERSION" ]; then
 	if [ -f "$HOME/.bashrc" ]; then
 		. "$HOME/.bashrc"
 	fi
+
+	# include .bashrc_local if it exists
+	if [ -f "$HOME/.bashrc_local" ]; then
+		. "$HOME/.bashrc_local"
+	fi
 fi
 
 # Set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
 	export PATH="$HOME/bin:$PATH"
-fi
-
-# Set PATH so it includes application's private bin if it exists
-if [ -d "${HOME}/.local/bin" ] ; then
-	export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Set MANPATH so it includes users' private man if it exists
