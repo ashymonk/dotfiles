@@ -3,25 +3,26 @@ set -eu
 
 DOTFILES_DIR=$(cd $(dirname $0); pwd)
 
-filebackup()
+dotfile_backup()
 {
 	target=${HOME}/$1
 	[ -f ${target}.old ] && return 0
 	[ -f ${target} ] && mv ${target} ${target}.old
 }
 
-filelink()
+dotfile_link()
 {
 	srcfile=${DOTFILES_DIR}/$1
 	destfile=${HOME}/$1
 	ln -sf ${srcfile} ${destfile}
 }
 
-filebackup .bash_profile
-filebackup .bashrc
-filebackup .vimrc
+dotfile_backup .bash_profile
+dotfile_backup .bashrc
+dotfile_backup .vimrc
 
-filelink .bash_profile
-filelink .bashrc
-filelink .vimrc
+dotfile_link .bash_profile
+dotfile_link .bashrc
+dotfile_link .vimrc
 
+exit 0
