@@ -7,9 +7,9 @@ if [ -n "$BASH_VERSION" ]; then
 		. "$HOME/.bashrc"
 	fi
 
-	# include .bashrc_local if it exists
-	if [ -f "$HOME/.bashrc_local" ]; then
-		. "$HOME/.bashrc_local"
+	# include .bashrc.local if it exists
+	if [ -f "$HOME/.bashrc.local" ]; then
+		. "$HOME/.bashrc.local"
 	fi
 fi
 
