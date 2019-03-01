@@ -1,11 +1,18 @@
 #! /bin/sh
 set -eu
 
+filebackup()
+{
+	target=${HOME}/$1
+	[ -f ${target}.old ] && return 0
+	[ -f ${target} ] && mv ${target} ${target}.old
+}
+
 DOTFILES_DIR=$(cd $(dirname $0); pwd)
 
-[ ! -f ~/.bash_profile.old ] && [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.old
-[ ! -f ~/.bashrc.old ] && [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.old
-[ ! -f ~/.vimrc.old ] && [ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.old
+filebackup .bash_profile
+filebackup .bashrc
+filebackup .vimrc
 
 ln -sf ${DOTFILES_DIR}/.bash_profile ~/.bash_profile
 ln -sf ${DOTFILES_DIR}/.bashrc ~/.bashrc
