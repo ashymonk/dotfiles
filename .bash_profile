@@ -3,19 +3,19 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-		. "$HOME/.bashrc"
+	if [ -f "${HOME}/.bashrc" ]; then
+		. "${HOME}/.bashrc"
 	fi
 
 	# include .bashrc.local if it exists
-	if [ -f "$HOME/.bashrc.local" ]; then
-		. "$HOME/.bashrc.local"
+	if [ -f "${HOME}/.bashrc.local" ]; then
+		. "${HOME}/.bashrc.local"
 	fi
 fi
 
 # Set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
-	export PATH="$HOME/bin:$PATH"
+	export PATH="${HOME}/bin:${PATH}"
 fi
 
 # Set MANPATH so it includes users' private man if it exists
