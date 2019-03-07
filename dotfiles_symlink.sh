@@ -20,9 +20,11 @@ dotfile_link()
 dotfile_backup .bash_profile
 dotfile_backup .bashrc
 dotfile_backup .vimrc
+dotfile_backup .gitconfig
 
 dotfile_link .bash_profile
 dotfile_link .bashrc
 dotfile_link .vimrc
+dotfile_link .gitconfig
 
 exit 0
