@@ -21,8 +21,8 @@ syntax on
 " 検索時ハイライト
 set hlsearch
 
-" カーソルがある行のライン表示
-set cursorline
+" カーソルがある行のライン非表示
+set nocursorline
 
 " タブ幅 4 文字
 set tabstop=4
@@ -76,6 +76,12 @@ set laststatus=2
 " タグファイルの検索方法
 " カレントディレクトリから登って探す
 set tags=./tags;
+
+" C インデント
+set cindent
+
+" 自動インデントでずれる幅
+set shiftwidth=4
 
 " }}}
 
