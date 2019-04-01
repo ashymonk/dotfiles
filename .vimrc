@@ -33,6 +33,9 @@ set list
 " 不可視文字の表示記号
 set listchars=tab:>-,trail:-,eol:~,extends:>,precedes:<,nbsp:%
 
+" 折り返し
+set nowrap
+
 " }}}
 
 
@@ -83,6 +86,29 @@ set cindent
 " 自動インデントでずれる幅
 set shiftwidth=4
 
+" バッファ内検索
+set ignorecase
+set smartcase
+
+" cscope
+if has("cscope")
+	set csprg=/usr/bin/cscope
+	set csto=0
+	set cst
+	set csqf=s-,c-,d-,i-,t-,e-
+
+	" add any database in current directory
+	set nocsverb
+
+	if filereadable("cscope.out")
+		cs add cscope.out
+	elseif $CSCOPE_DB != ""
+		cs add $CSCOPE_DB
+	endif
+
+	set csverb
+endif
+
 " }}}
 
 " }}}
@@ -91,7 +117,7 @@ set shiftwidth=4
 
 "キーマップ" {{{
 
-" <Space>g: grep util
+" grep util
 noremap <Space>g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
 
 " windows とのクリップボード共有コピー
@@ -99,6 +125,15 @@ if has('win32unix')
   vnoremap "*y :'<,'>w !cat > /dev/clipboard
 endif
 
+" cscope
+noremap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
+noremap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
+noremap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
 
 " }}}
 
@@ -126,6 +161,10 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
+
+" color scheme
+autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
+autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
 
 " }}}
 
