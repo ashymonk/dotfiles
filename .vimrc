@@ -12,6 +12,12 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 "見た目" {{{
 
+" フォント
+if has('gui_running')
+	set guifont=MS_Gothic:h10
+	set guifontwide=MS_Gothic:h10
+endif
+
 " 行数表示
 set number
 
@@ -77,6 +83,8 @@ set laststatus=2
 "開発関連" {{{
 
 " タグファイルの検索方法
+set clipboard+=unnamed
+
 " カレントディレクトリから登って探す
 set tags=./tags;
 
