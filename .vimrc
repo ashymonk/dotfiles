@@ -1,5 +1,5 @@
 
-"設定" {{{
+"options {{{
 
 "エンコード、テキスト種別" {{{
 
@@ -121,9 +121,7 @@ endif
 
 " }}}
 
-"ユーザ定義" {{{
-
-"キーマップ" {{{
+"key-mapping {{{
 
 " grep util
 noremap <Space>g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -145,8 +143,7 @@ noremap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
 
 " }}}
 
-
-"コマンド" {{{
+"cmdline-lines {{{
 
 command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
 function! s:grep(args)
@@ -157,8 +154,7 @@ endfunction
 
 " }}}
 
-
-"オートコマンド" {{{
+"autocommand {{{
 
 " vim ファイルの折畳みコメント有効
 autocmd FileType vim setlocal foldmethod=marker
@@ -175,6 +171,9 @@ autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
 autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
 
 " }}}
+
+"plugin {{{
+
 
 " }}}
 
