@@ -145,6 +145,11 @@ noremap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
 
 "cmdline-lines {{{
 
+" edit and reload vimrc
+command! Ve $tabe $MYVIMRC
+command! Vr source $MYVIMRC
+
+" grep into current directory.
 command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
 function! s:grep(args)
     let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
@@ -167,8 +172,8 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " color scheme
-autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
-autocmd VimEnter,WinEnter,ColorScheme * highlight Comment ctermfg=DarkGray
+autocmd BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray
+autocmd BufEnter,ColorScheme * highlight SpecialKey ctermfg=DarkGray
 
 " }}}
 
