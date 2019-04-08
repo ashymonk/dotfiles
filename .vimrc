@@ -132,14 +132,20 @@ if has('win32unix')
 endif
 
 " cscope
-noremap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
-noremap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
-noremap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
+noremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
+noremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+
+" refresh cscope db
+noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
+
+" ESC disable IME
+inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 " }}}
 
