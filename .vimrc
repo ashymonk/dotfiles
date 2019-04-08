@@ -151,6 +151,9 @@ inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 "cmdline-lines {{{
 
+" Open Current Directory
+command! Dir $tabe .
+
 " edit and reload vimrc
 command! Ve $tabe $MYVIMRC
 command! Vr source $MYVIMRC
@@ -178,8 +181,8 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " color scheme
-autocmd BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray
-autocmd BufEnter,ColorScheme * highlight SpecialKey ctermfg=DarkGray
+autocmd SourcePost,BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
+autocmd SourcePost,BufEnter,ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
 
 " }}}
 
