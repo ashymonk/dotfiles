@@ -9,14 +9,16 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 " }}}
 
-
 "見た目" {{{
 
 " フォント
 if has('gui_running')
-	set guifont=MS_Gothic:h10
-	set guifontwide=MS_Gothic:h10
+	set guifont=Ricty_Diminished:h10
+	set guifontwide=Ricty_Diminished:h10
 endif
+
+" Width Class Ambiguous is twice the width of ASCII characters.
+set ambiwidth=double
 
 " 行数表示
 set number
@@ -44,8 +46,7 @@ set nowrap
 
 " }}}
 
-
-"ステータスライン" {{{
+"statusline {{{
 
 " ファイル名表示
 set statusline=%F
@@ -79,13 +80,19 @@ set laststatus=2
 
 " }}}
 
+"tabline {{{
+
+" show tabline when one tab is open.
+set showtabline=2
+
+" }}}
 
 "開発関連" {{{
 
 " タグファイルの検索方法
 set clipboard+=unnamed
 
-" カレントディレクトリから登って探す
+" search tag file in previous directory recusively.
 set tags=./tags;
 
 " C インデント
@@ -116,6 +123,9 @@ if has("cscope")
 
 	set csverb
 endif
+
+" swap file directory
+set directory=~/.vim
 
 " }}}
 
@@ -181,8 +191,8 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " color scheme
-autocmd SourcePost,BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
-autocmd SourcePost,BufEnter,ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
+autocmd BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
+autocmd BufEnter,ColorScheme * highlight SpecialKey ctermfg=LightGray guifg=LightGray
 
 " }}}
 
