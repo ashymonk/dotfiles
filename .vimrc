@@ -23,9 +23,6 @@ set ambiwidth=double
 " 行数表示
 set number
 
-" シンタックスハイライト
-syntax on
-
 " 検索時ハイライト
 set hlsearch
 
@@ -131,7 +128,7 @@ set directory=~/.vim
 
 " }}}
 
-"key-mapping {{{
+"map {{{
 
 " grep util
 noremap <Space>g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -159,7 +156,7 @@ inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 " }}}
 
-"cmdline-lines {{{
+"cmdline {{{
 
 " Open Current Directory
 command! Dir $tabe .
@@ -178,7 +175,7 @@ endfunction
 
 " }}}
 
-"autocommand {{{
+"autocmd {{{
 
 " vim ファイルの折畳みコメント有効
 autocmd FileType vim setlocal foldmethod=marker
@@ -191,8 +188,16 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " color scheme
-autocmd BufEnter,ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
-autocmd BufEnter,ColorScheme * highlight SpecialKey ctermfg=LightGray guifg=LightGray
+autocmd ColorScheme * highlight Comment ctermfg=Gray guifg=Gray
+autocmd ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
+
+" }}}
+
+"syntax {{{
+
+" syntax highlight
+syntax on
+colorscheme elflord
 
 " }}}
 
