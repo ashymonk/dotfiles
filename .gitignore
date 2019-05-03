@@ -1,1 +1,5 @@
+# common
 *.local
+
+# vim
+vim/.config/vim/.netrwhist
