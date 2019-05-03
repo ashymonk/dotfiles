@@ -1,5 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim -c \"set fenc=utf-8\"
 [alias]
 	st = status
 	d = diff
