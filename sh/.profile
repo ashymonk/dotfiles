@@ -22,6 +22,9 @@ case $TERM in
 esac
 export LANG
 
+# editor
+export EDITOR='vim -c "set fenc=utf-8"'
+
 # set XDG HOME
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
