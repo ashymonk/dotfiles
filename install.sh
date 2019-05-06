@@ -7,6 +7,6 @@ cd $(dirname $0)
 
 for package in $(ls -d */)
 do
-	stow -t $TARGET_DIR -S $package
+	stow -t $TARGET_DIR -R $package
 done
 
