@@ -1,2 +1,5 @@
 # common
 *.local
+
+# vim
+vim/.config/vim/plugged
