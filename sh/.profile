@@ -1,25 +1,5 @@
 # ~/.profile
 
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/bin" ] ; then
-	export PATH="${HOME}/bin:${PATH}"
-fi
-
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/.local/bin" ] ; then
-	export PATH="${HOME}/.local/bin:${PATH}"
-fi
-
-# Set MANPATH so it includes users' private man if it exists
-if [ -d "${HOME}/.local/share/man" ]; then
-	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
-fi
-
-# Set INFOPATH so it includes users' private info if it exists
-if [ -d "${HOME}/.local/share/info" ]; then
-	export INFOPATH="${HOME}/.local/share/info:${INFOPATH}"
-fi
-
 # set language
 case $TERM in
 	linux) LANG=C ;;
@@ -30,13 +10,33 @@ export LANG
 # editor
 export EDITOR='vim -c "set fenc=utf-8"'
 
-# set XDG HOME
+# set XDG base directory HOME.
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 # set application config.
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+	export PATH="$HOME/bin:$PATH"
+fi
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Set MANPATH so it includes users' private man if it exists
+if [ -d "$HOME/.local/share/man" ]; then
+	export MANPATH="$HOME/.local/share/man:$MANPATH"
+fi
+
+# Set INFOPATH so it includes users' private info if it exists
+if [ -d "$HOME/.local/share/info" ]; then
+	export INFOPATH="$HOME/.local/share/info:$INFOPATH"
+fi
 
 # include user profile (local)
 [ -f ~/.profile.local ] && . ~/.profile.local
