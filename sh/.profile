@@ -5,14 +5,19 @@ if [ -d "${HOME}/bin" ] ; then
 	export PATH="${HOME}/bin:${PATH}"
 fi
 
+# Set PATH so it includes user's private bin if it exists
+if [ -d "${HOME}/.local/bin" ] ; then
+	export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 # Set MANPATH so it includes users' private man if it exists
-if [ -d "${HOME}/man" ]; then
-	export MANPATH="${HOME}/man:${MANPATH}"
+if [ -d "${HOME}/.local/share/man" ]; then
+	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
 fi
 
 # Set INFOPATH so it includes users' private info if it exists
-if [ -d "${HOME}/info" ]; then
-	export INFOPATH="${HOME}/info:${INFOPATH}"
+if [ -d "${HOME}/.local/share/info" ]; then
+	export INFOPATH="${HOME}/.local/share/info:${INFOPATH}"
 fi
 
 # set language
