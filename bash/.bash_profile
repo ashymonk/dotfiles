@@ -10,6 +10,3 @@ fi
 # include user profile
 [[ -f ~/.profile ]] && source ~/.profile
 
-# include user local profile
-[[ -f ~/.profile.local ]] && source ~/.profile.local
-

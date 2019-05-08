@@ -33,3 +33,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 # set application config.
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
+# include user profile (local)
+[ -f ~/.profile.local ] && . ~/.profile.local
+
