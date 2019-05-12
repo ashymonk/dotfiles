@@ -143,8 +143,13 @@ endif
 
 let mapleader = "\<Space>"
 
-" grep util
-noremap <leader>g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
+nmap <Leader>g [grep]
+nmap <Leader>c [cscope]
+nmap <Leader>h [highlight]
+
+" grep
+noremap [grep]g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
+noremap [grep]G :Grep 
 
 " windows とのクリップボード共有コピー
 if has('win32unix')
@@ -152,14 +157,14 @@ if has('win32unix')
 endif
 
 " cscope
-noremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
-noremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
-noremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
+noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
+noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
 
 " refresh cscope db
 noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
@@ -167,11 +172,11 @@ noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
-" vim-quickhl
-nmap <leader>m <Plug>(quickhl-manual-this)
-xmap <leader>m <Plug>(quickhl-manual-this)
-nmap <leader>M <Plug>(quickhl-manual-reset)
-xmap <leader>M <Plug>(quickhl-manual-reset)
+" highlight
+nmap [highlight]m <Plug>(quickhl-manual-this)
+xmap [highlight]m <Plug>(quickhl-manual-this)
+nmap [highlight]M <Plug>(quickhl-manual-reset)
+xmap [highlight]M <Plug>(quickhl-manual-reset)
 
 " }}}
 

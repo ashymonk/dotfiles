@@ -4,6 +4,7 @@
 [alias]
 	st = status
 	d = diff
+	b = branch
 [log]
 	decorate = true
 [include]
