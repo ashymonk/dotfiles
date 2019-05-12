@@ -5,6 +5,7 @@
 	st = status
 	d = diff
 	b = branch
+	l = log
 [log]
 	decorate = true
 [include]
