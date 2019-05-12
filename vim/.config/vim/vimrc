@@ -167,6 +167,12 @@ noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
+" vim-quickhl
+nmap <leader>m <Plug>(quickhl-manual-this)
+xmap <leader>m <Plug>(quickhl-manual-this)
+nmap <leader>M <Plug>(quickhl-manual-reset)
+xmap <leader>M <Plug>(quickhl-manual-reset)
+
 " }}}
 
 "cmdline {{{
@@ -201,7 +207,7 @@ augroup HighlightTrailingSpaces
 augroup END
 
 " color scheme
-autocmd ColorScheme * highlight Comment ctermfg=Gray guifg=Gray
+autocmd ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
 autocmd ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
 
 " }}}
@@ -218,8 +224,7 @@ colorscheme desert
 
 call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
 
-Plug 'inkarkat/vim-ingo-library'
-Plug 'inkarkat/vim-mark'
+Plug 't9md/vim-quickhl'
 
 call plug#end()
 
