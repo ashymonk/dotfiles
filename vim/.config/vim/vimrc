@@ -175,22 +175,36 @@ inoremap <ESC> <ESC>:set iminsert=0<CR>
 " highlight
 nmap [highlight]m <Plug>(quickhl-manual-this)
 xmap [highlight]m <Plug>(quickhl-manual-this)
+
+nmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
+xmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
+
+nmap [highlight]c <Plug>(quickhl-manual-clear)
+vmap [highlight]c <Plug>(quickhl-manual-clear)
+
 nmap [highlight]M <Plug>(quickhl-manual-reset)
 xmap [highlight]M <Plug>(quickhl-manual-reset)
+
+nmap [highlight]j <Plug>(quickhl-cword-toggle)
+nmap [highlight]] <Plug>(quickhl-tag-toggle)
 
 " }}}
 
 "cmdline {{{
 
 " Open Current Directory
-command! Dir $tabe .
+command Edir edit .
+command Sdir split .
+command Tdir $tabedit .
 
 " edit and reload vimrc
-command! Ve $tabe $MYVIMRC
-command! Vr source $MYVIMRC
+command Evim edit $MYVIMRC
+command Svim split $MYVIMRC
+command Tvim $tabedit $MYVIMRC
+command Rvim source $MYVIMRC
 
 " grep into current directory.
-command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
+command -complete=file -nargs=+ Grep call s:grep([<f-args>])
 function! s:grep(args)
     let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
     execute 'vimgrep' '/' . a:args[0] . '/j ' . target
