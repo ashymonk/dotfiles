@@ -18,6 +18,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 # Application config.
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 # PATH / MANPATH / INFOPATH
 export PATH="$HOME/bin:$PATH"
