@@ -17,12 +17,14 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 # Application config.
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 # PATH / MANPATH / INFOPATH
-[ -d "$HOME/bin" ]               && export PATH="$HOME/bin:$PATH"
-[ -d "$HOME/.local/bin" ]        && export PATH="$HOME/.local/bin:$PATH"
-[ -d "$HOME/.local/share/man" ]  && export MANPATH="$HOME/.local/share/man:$MANPATH"
-[ -d "$HOME/.local/share/info" ] && export INFOPATH="$HOME/.local/share/info:$INFOPATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$CARGO_HOME/bin:$PATH"
+export MANPATH="$HOME/.local/share/man:$MANPATH"
+export INFOPATH="$HOME/.local/share/info:$INFOPATH"
 
 # include user local profile
 [ -f ~/.profile.local ] && . ~/.profile.local
