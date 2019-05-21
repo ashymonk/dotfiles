@@ -146,36 +146,36 @@ endif
 
 "map {{{
 
-let mapleader = "\<Space>"
-
+" *** standard command keymap ***
+let mapleader = ","
 nmap <Leader>g [grep]
 nmap <Leader>c [cscope]
-nmap <Leader>h [highlight]
+nmap <Leader>q [quickfix]
 
 " grep
 noremap [grep]g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
-noremap [grep]G :Grep 
-
-" windows とのクリップボード共有コピー
-if has('win32unix')
-  vnoremap "*y :'<,'>w !cat > /dev/clipboard
-endif
+noremap [grep]G :Grep <C-r><C-w>
 
 " cscope
-noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
-noremap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cwin<CR>
-noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:cwin<CR>
-noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>:cwin<CR>
+noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" refresh cscope db
-noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
+" quickfix
+noremap [quickfix]co :copen<CR>
+noremap [quickfix]cc :cclose<CR>
+noremap [quickfix]cw :cwindow<CR>
+noremap [quickfix]cb :cbottom<CR>
 
-" ESC disable IME
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+" *** plugin command keymap ***
+let mapleader = "\<Space>"
+nmap <Leader>h [highlight]
+vmap <Leader>h [highlight]
 
 " highlight
 nmap [highlight]m <Plug>(quickhl-manual-this)
@@ -192,6 +192,20 @@ xmap [highlight]M <Plug>(quickhl-manual-reset)
 
 nmap [highlight]j <Plug>(quickhl-cword-toggle)
 nmap [highlight]] <Plug>(quickhl-tag-toggle)
+
+" refresh cscope db
+noremap <F5> :cs kill cscope.out<CR>:!cscope -Rbq<CR>:cs add cscope.out<CR>
+
+" ESC disable IME
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+" no highlight
+nnoremap <ESC><ESC> :noh<CR>"
+
+" windows とのクリップボード共有コピー
+if has('win32unix')
+  vnoremap "*y :'<,'>w !cat > /dev/clipboard
+endif
 
 " }}}
 
@@ -225,14 +239,20 @@ autocmd FileType vim setlocal foldmethod=marker
 
 " 行末ブランクをハイライトする
 augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+	autocmd!
+	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
 " color scheme
 autocmd ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
 autocmd ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
+
+" Quickfix
+augroup qf
+	autocmd!
+	autocmd QuickFixCmdPost grep,grepadd,vimgrep,vimgrepadd,cscope cwindow
+augroup END
 
 " }}}
 
