@@ -1,30 +1,26 @@
 #! /bin/sh
 set -u
+cd $(dirname $0)
 
 TARGET_DIR=$HOME
 
-cd $(dirname $0)
-
-. sh/.profile
-
-mkdir -p $XDG_CONFIG_HOME
-mkdir -p $XDG_CACHE_HOME
-mkdir -p $XDG_DATA_HOME
+mkdir -p $TARGET_DIR/.config
+mkdir -p $TARGET_DIR/.cache
+mkdir -p $TARGET_DIR/.local/share
 
 for package in $(ls -d */)
 do
 	stow -t $TARGET_DIR -R $package
-
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1
 	fi
 done
 
-echo "************************************"
-echo "* dotfiles installation succeeded. *"
-echo "************************************"
+echo "**********************"
+echo "* installed dotfiles *"
+echo "**********************"
 
-bash --login
+bash -li
 
 exit 0
