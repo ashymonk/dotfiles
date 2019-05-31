@@ -25,6 +25,9 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
+# disable tty stop
+stty stop undef
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -99,6 +102,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias cd='cdls'
+
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
@@ -117,7 +122,7 @@ fi
 # Function definitions.
 
 # ls after cd
-cd ()
+cdls ()
 {
 	builtin cd "$@" && ls
 }
