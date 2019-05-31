@@ -200,7 +200,6 @@ nmap [highlight]] <Plug>(quickhl-tag-toggle)
 noremap <F5> :cs kill cscope.out<CR>:!cs -Rb<CR>:cs add cscope.out<CR>
 
 " ESC disable IME
-nnoremap <ESC> <ESC>:set iminsert=0<CR>
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 " windows とのクリップボード共有コピー
