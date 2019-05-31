@@ -154,14 +154,17 @@ nmap <Leader>q [quickfix]
 
 " grep
 noremap [grep]g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
-noremap [grep]G :Grep <C-r><C-w>
+noremap [grep]G :Grep<Space>
 
 " cscope
 noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
 noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]G :cs find g<Space>
 noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]C :cs find c<Space>
 noremap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
 noremap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]E :cs find e<Space>
 noremap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
@@ -194,13 +197,11 @@ nmap [highlight]j <Plug>(quickhl-cword-toggle)
 nmap [highlight]] <Plug>(quickhl-tag-toggle)
 
 " refresh cscope db
-noremap <F5> :cs kill cscope.out<CR>:!cscope -Rbq<CR>:cs add cscope.out<CR>
+noremap <F5> :cs kill cscope.out<CR>:!cs -Rb<CR>:cs add cscope.out<CR>
 
 " ESC disable IME
+nnoremap <ESC> <ESC>:set iminsert=0<CR>
 inoremap <ESC> <ESC>:set iminsert=0<CR>
-
-" no highlight
-nnoremap <ESC><ESC> :noh<CR>"
 
 " windows とのクリップボード共有コピー
 if has('win32unix')
@@ -240,7 +241,7 @@ autocmd FileType vim setlocal foldmethod=marker
 " 行末ブランクをハイライトする
 augroup HighlightTrailingSpaces
 	autocmd!
-	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=DarkRed ctermbg=DarkRed
 	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
