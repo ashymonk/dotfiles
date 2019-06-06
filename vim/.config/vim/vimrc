@@ -147,6 +147,9 @@ endif
 "map {{{
 
 " *** standard command keymap ***
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
 let mapleader = ","
 nmap <Leader>g [grep]
 nmap <Leader>c [cscope]
@@ -271,6 +274,7 @@ call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
 Plug 't9md/vim-quickhl'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'ap/vim-buftabline'
 
 call plug#end()
 
