@@ -12,8 +12,15 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 
 let $MYVIMRC = $XDG_CONFIG_HOME . '/vim/vimrc'
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'
+
+" vim-racer
 let g:racer_cmd = $CARGO_HOME . '/bin/racer'
 let g:racer_experimental_completer = 1
+
+" buftabline
+let g:buftabline_numbers = 2
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
 
 " }}}
 
@@ -146,9 +153,24 @@ endif
 
 "map {{{
 
-" *** standard command keymap ***
+" ***************************
+" * standard command keymap *
+" ***************************
+
+" buffer
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
+
+" refresh cscope db
+noremap <F5> :cs kill cscope.out<CR>:!cs -Rb<CR>:cs add cscope.out<CR>
+
+" ESC disable IME
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+" windows とのクリップボード共有コピー
+if has('win32unix')
+  vnoremap "*y :'<,'>w !cat > /dev/clipboard
+endif
 
 let mapleader = ","
 nmap <Leader>g [grep]
@@ -178,37 +200,36 @@ noremap [quickfix]cc :cclose<CR>
 noremap [quickfix]cw :cwindow<CR>
 noremap [quickfix]cb :cbottom<CR>
 
-" *** plugin command keymap ***
+
+" *************************
+" * plugin command keymap *
+" *************************
+
 let mapleader = "\<Space>"
 nmap <Leader>h [highlight]
 vmap <Leader>h [highlight]
+nmap <Leader>1 <Plug>BufTabLine.Go(1)
+nmap <Leader>2 <Plug>BufTabLine.Go(2)
+nmap <Leader>3 <Plug>BufTabLine.Go(3)
+nmap <Leader>4 <Plug>BufTabLine.Go(4)
+nmap <Leader>5 <Plug>BufTabLine.Go(5)
+nmap <Leader>6 <Plug>BufTabLine.Go(6)
+nmap <Leader>7 <Plug>BufTabLine.Go(7)
+nmap <Leader>8 <Plug>BufTabLine.Go(8)
+nmap <Leader>9 <Plug>BufTabLine.Go(9)
+nmap <Leader>0 <Plug>BufTabLine.Go(10)
 
 " highlight
 nmap [highlight]m <Plug>(quickhl-manual-this)
 xmap [highlight]m <Plug>(quickhl-manual-this)
-
 nmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
 xmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
-
 nmap [highlight]c <Plug>(quickhl-manual-clear)
 vmap [highlight]c <Plug>(quickhl-manual-clear)
-
 nmap [highlight]M <Plug>(quickhl-manual-reset)
 xmap [highlight]M <Plug>(quickhl-manual-reset)
-
 nmap [highlight]j <Plug>(quickhl-cword-toggle)
 nmap [highlight]] <Plug>(quickhl-tag-toggle)
-
-" refresh cscope db
-noremap <F5> :cs kill cscope.out<CR>:!cs -Rb<CR>:cs add cscope.out<CR>
-
-" ESC disable IME
-inoremap <ESC> <ESC>:set iminsert=0<CR>
-
-" windows とのクリップボード共有コピー
-if has('win32unix')
-  vnoremap "*y :'<,'>w !cat > /dev/clipboard
-endif
 
 " }}}
 
