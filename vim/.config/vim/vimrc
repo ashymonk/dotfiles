@@ -176,6 +176,7 @@ let mapleader = ","
 nmap <Leader>g [grep]
 nmap <Leader>c [cscope]
 nmap <Leader>q [quickfix]
+nmap <Leader>b [buffer]
 
 " grep
 noremap [grep]g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -200,36 +201,44 @@ noremap [quickfix]cc :cclose<CR>
 noremap [quickfix]cw :cwindow<CR>
 noremap [quickfix]cb :cbottom<CR>
 
+" buffer
+noremap [buffer]n :bnext<CR>
+noremap [buffer]p :bprev<CR>
+noremap [buffer]d :bdelete<CR>
+
 
 " *************************
 " * plugin command keymap *
 " *************************
 
 let mapleader = "\<Space>"
-nmap <Leader>h [highlight]
-vmap <Leader>h [highlight]
-nmap <Leader>1 <Plug>BufTabLine.Go(1)
-nmap <Leader>2 <Plug>BufTabLine.Go(2)
-nmap <Leader>3 <Plug>BufTabLine.Go(3)
-nmap <Leader>4 <Plug>BufTabLine.Go(4)
-nmap <Leader>5 <Plug>BufTabLine.Go(5)
-nmap <Leader>6 <Plug>BufTabLine.Go(6)
-nmap <Leader>7 <Plug>BufTabLine.Go(7)
-nmap <Leader>8 <Plug>BufTabLine.Go(8)
-nmap <Leader>9 <Plug>BufTabLine.Go(9)
-nmap <Leader>0 <Plug>BufTabLine.Go(10)
+nmap <Leader>h [quickhl]
+vmap <Leader>h [quickhl]
+nmap <Leader>b [buftab]
 
-" highlight
-nmap [highlight]m <Plug>(quickhl-manual-this)
-xmap [highlight]m <Plug>(quickhl-manual-this)
-nmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
-xmap [highlight]w <Plug>(quickhl-manual-this-whole-word)
-nmap [highlight]c <Plug>(quickhl-manual-clear)
-vmap [highlight]c <Plug>(quickhl-manual-clear)
-nmap [highlight]M <Plug>(quickhl-manual-reset)
-xmap [highlight]M <Plug>(quickhl-manual-reset)
-nmap [highlight]j <Plug>(quickhl-cword-toggle)
-nmap [highlight]] <Plug>(quickhl-tag-toggle)
+" vim-quickhl
+nmap [quickhl]m <Plug>(quickhl-manual-this)
+xmap [quickhl]m <Plug>(quickhl-manual-this)
+nmap [quickhl]w <Plug>(quickhl-manual-this-whole-word)
+xmap [quickhl]w <Plug>(quickhl-manual-this-whole-word)
+nmap [quickhl]c <Plug>(quickhl-manual-clear)
+vmap [quickhl]c <Plug>(quickhl-manual-clear)
+nmap [quickhl]M <Plug>(quickhl-manual-reset)
+xmap [quickhl]M <Plug>(quickhl-manual-reset)
+nmap [quickhl]j <Plug>(quickhl-cword-toggle)
+nmap [quickhl]] <Plug>(quickhl-tag-toggle)
+
+" vim-buftabline
+nmap [buftab]1 <Plug>BufTabLine.Go(1)
+nmap [buftab]2 <Plug>BufTabLine.Go(2)
+nmap [buftab]3 <Plug>BufTabLine.Go(3)
+nmap [buftab]4 <Plug>BufTabLine.Go(4)
+nmap [buftab]5 <Plug>BufTabLine.Go(5)
+nmap [buftab]6 <Plug>BufTabLine.Go(6)
+nmap [buftab]7 <Plug>BufTabLine.Go(7)
+nmap [buftab]8 <Plug>BufTabLine.Go(8)
+nmap [buftab]9 <Plug>BufTabLine.Go(9)
+nmap [buftab]0 <Plug>BufTabLine.Go(10)
 
 " }}}
 
