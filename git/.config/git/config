@@ -1,12 +1,21 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim -c \"set fenc=utf-8\"
+
 [alias]
 	st = status
 	d = diff
+	dw = diff --color-words
 	b = branch
+	co = checkout
+	a = add
+	ci = commit
 	l = log
+	la = log --remotes --branches
+	lg = log --graph --oneline --format=\"%h [%<(12,trunc)%aN] [%<(12,trunc)%cN] %<(50,trunc)%s\"
+
 [log]
 	decorate = true
+
 [include]
 	path = ~/.config/git/config.local
