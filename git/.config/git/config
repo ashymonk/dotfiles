@@ -6,6 +6,8 @@
 	st = status
 	d = diff
 	dw = diff --color-words
+	dc = diff --cached
+	dcw = diff --cached --color-words
 	b = branch
 	co = checkout
 	a = add
