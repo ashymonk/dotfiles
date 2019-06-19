@@ -156,6 +156,8 @@ endif
 " ***************************
 " * standard command keymap *
 " ***************************
+" yank
+vnoremap <C-C> y
 
 " buffer
 nnoremap <C-N> :bnext<CR>
@@ -305,6 +307,7 @@ Plug 't9md/vim-quickhl'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'ap/vim-buftabline'
+Plug 'mechatroner/rainbow_csv'
 
 call plug#end()
 
