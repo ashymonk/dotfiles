@@ -59,7 +59,7 @@ set tabstop=4
 set list
 
 " 不可視文字の表示記号
-set listchars=tab:>-,trail:-,eol:~,extends:>,precedes:<,nbsp:%
+set listchars=tab:.\ ,trail:-,eol:~,extends:>,precedes:<,nbsp:%
 
 " 折り返し
 set nowrap
@@ -156,6 +156,9 @@ endif
 " ***************************
 " * standard command keymap *
 " ***************************
+" select all
+nnoremap <C-A> ggVG
+
 " yank
 vnoremap <C-C> y
 
@@ -163,8 +166,15 @@ vnoremap <C-C> y
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+" tag jump
+nmap <C-]> <C-]>zz
+nmap <C-T> <C-T>zz
+
+" search
+nmap n nzz
+
 " refresh cscope db
-noremap <F5> :cs kill cscope.out<CR>:!cs -Rb<CR>:cs add cscope.out<CR>
+noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
 
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
@@ -198,10 +208,13 @@ noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " quickfix
-noremap [quickfix]co :copen<CR>
-noremap [quickfix]cc :cclose<CR>
-noremap [quickfix]cw :cwindow<CR>
-noremap [quickfix]cb :cbottom<CR>
+noremap [quickfix]o :copen<CR>
+noremap [quickfix]c :cclose<CR>
+noremap [quickfix]w :cwindow<CR>
+noremap [quickfix]b :cbottom<CR>
+noremap [quickfix]n :cnext<CR>
+noremap [quickfix]p :cprevious<CR>
+noremap [quickfix]N :cNext<CR>
 
 " buffer
 noremap [buffer]n :bnext<CR>
