@@ -282,8 +282,14 @@ endfunction
 
 "autocmd {{{
 
-" vim ファイルの折畳みコメント有効
+" vim
 autocmd FileType vim setlocal foldmethod=marker
+
+" rust
+autocmd FileType rust nmap gd <Plug>(rust-def)
+autocmd FileType rust nmap gs <Plug>(rust-def-split)
+autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
+autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " 行末ブランクをハイライトする
 augroup HighlightTrailingSpaces
@@ -291,10 +297,6 @@ augroup HighlightTrailingSpaces
 	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=DarkRed ctermbg=DarkRed
 	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-
-" color scheme
-autocmd ColorScheme * highlight Comment ctermfg=DarkGray guifg=DarkGray
-autocmd ColorScheme * highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
 
 " Quickfix
 augroup qf
@@ -316,10 +318,11 @@ colorscheme desert
 
 call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
 
+Plug 'tpope/vim-unimpaired'
+Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
-Plug 'ap/vim-buftabline'
 Plug 'mechatroner/rainbow_csv'
 
 call plug#end()
