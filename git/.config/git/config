@@ -13,6 +13,8 @@
 	a = add
 	ci = commit
 	l = log
+	lp = log -p
+	lpw = log -p --color-words
 	la = log --remotes --branches
 	lg = log --graph --oneline --format=\"%h [%<(12,trunc)%aN] [%<(12,trunc)%cN] %<(50,trunc)%s\"
 
