@@ -196,6 +196,7 @@ noremap [grep]G :Grep<Space>
 
 " cscope
 noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
+noremap [cscope]S :cs find s<Space>
 noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
 noremap [cscope]G :cs find g<Space>
 noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -258,11 +259,6 @@ nmap [buftab]0 <Plug>BufTabLine.Go(10)
 " }}}
 
 "cmdline {{{
-
-" Open Current Directory
-command! Edir edit .
-command! Sdir split .
-command! Tdir $tabedit .
 
 " edit and reload vimrc
 command! Evim edit $MYVIMRC
