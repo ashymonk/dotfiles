@@ -128,25 +128,6 @@ set smartcase
 " open file
 set hidden
 
-" cscope
-if has("cscope")
-	set csprg=cscope
-	set csto=0
-	set cst
-	set csqf=s-,c-,d-,i-,t-,e-
-
-	" add any database in current directory
-	set nocsverb
-
-	if filereadable("cscope.out")
-		cs add cscope.out
-	elseif $CSCOPE_DB != ""
-		cs add $CSCOPE_DB
-	endif
-
-	set csverb
-endif
-
 " }}}
 
 " }}}
@@ -173,8 +154,8 @@ nmap <C-T> <C-T>zz
 " search
 nmap n nzz
 
-" refresh cscope db
-noremap <F5> :cs kill cscope.out<CR>:!cscope -Rb<CR>:cs add cscope.out<CR>
+" refresh global reference
+noremap <F5> :!gtags
 
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
@@ -256,6 +237,19 @@ nmap [buftab]8 <Plug>BufTabLine.Go(8)
 nmap [buftab]9 <Plug>BufTabLine.Go(9)
 nmap [buftab]0 <Plug>BufTabLine.Go(10)
 
+" gtags
+nmap \gtags\t :Gtags <C-r><C-w><CR>
+nmap \gtags\T :Gtags<Space>
+nmap \gtags\r :Gtags -r <C-r><C-w><CR>
+nmap \gtags\R :Gtags -r<Space>
+nmap \gtags\s :Gtags -s <C-r><C-w><CR>
+nmap \gtags\S :Gtags -s<Space>
+nmap \gtags\g :Gtags -g <C-r><C-w><CR>
+nmap \gtags\G :Gtags -g<Space>
+nmap \gtags\f :Gtags -f %<CR>
+nmap \gtags\F :Gtags -f<Space>
+nmap \gtags\j :GtagsCursor<CR>
+
 " }}}
 
 "cmdline {{{
@@ -317,6 +311,7 @@ call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
+Plug 'vim-scripts/gtags.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'mechatroner/rainbow_csv'
