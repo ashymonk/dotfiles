@@ -166,42 +166,27 @@ if has('win32unix')
 endif
 
 let mapleader = ","
-nmap <Leader>g [grep]
-nmap <Leader>c [cscope]
-nmap <Leader>q [quickfix]
-nmap <Leader>b [buffer]
+nmap <Leader>g \grep\
+nmap <Leader>q \quickfix\
+nmap <Leader>b \buffer\
 
 " grep
-noremap [grep]g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
-noremap [grep]G :Grep<Space>
-
-" cscope
-noremap [cscope]s :cs find s <C-R>=expand("<cword>")<CR><CR>
-noremap [cscope]S :cs find s<Space>
-noremap [cscope]g :cs find g <C-R>=expand("<cword>")<CR><CR>
-noremap [cscope]G :cs find g<Space>
-noremap [cscope]c :cs find c <C-R>=expand("<cword>")<CR><CR>
-noremap [cscope]C :cs find c<Space>
-noremap [cscope]t :cs find t <C-R>=expand("<cword>")<CR><CR>
-noremap [cscope]e :cs find e <C-R>=expand("<cword>")<CR><CR>
-noremap [cscope]E :cs find e<Space>
-noremap [cscope]f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-noremap [cscope]i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-noremap [cscope]d :cs find d <C-R>=expand("<cword>")<CR><CR>
+noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
+noremap \grep\G :Grep<Space>
 
 " quickfix
-noremap [quickfix]o :copen<CR>
-noremap [quickfix]c :cclose<CR>
-noremap [quickfix]w :cwindow<CR>
-noremap [quickfix]b :cbottom<CR>
-noremap [quickfix]n :cnext<CR>
-noremap [quickfix]p :cprevious<CR>
-noremap [quickfix]N :cNext<CR>
+noremap \quickfix\o :copen<CR>
+noremap \quickfix\c :cclose<CR>
+noremap \quickfix\w :cwindow<CR>
+noremap \quickfix\b :cbottom<CR>
+noremap \quickfix\n :cnext<CR>
+noremap \quickfix\p :cprevious<CR>
+noremap \quickfix\N :cNext<CR>
 
 " buffer
-noremap [buffer]n :bnext<CR>
-noremap [buffer]p :bprev<CR>
-noremap [buffer]d :bdelete<CR>
+noremap \buffer\n :bnext<CR>
+noremap \buffer\p :bprev<CR>
+noremap \buffer\d :bdelete<CR>
 
 
 " *************************
@@ -209,33 +194,34 @@ noremap [buffer]d :bdelete<CR>
 " *************************
 
 let mapleader = "\<Space>"
-nmap <Leader>h [quickhl]
-vmap <Leader>h [quickhl]
-nmap <Leader>b [buftab]
+nmap <Leader>h \quickhl\
+vmap <Leader>h \quickhl\
+nmap <Leader>b \buftab\
+nmap <Leader>g \gtags\
 
 " vim-quickhl
-nmap [quickhl]m <Plug>(quickhl-manual-this)
-xmap [quickhl]m <Plug>(quickhl-manual-this)
-nmap [quickhl]w <Plug>(quickhl-manual-this-whole-word)
-xmap [quickhl]w <Plug>(quickhl-manual-this-whole-word)
-nmap [quickhl]c <Plug>(quickhl-manual-clear)
-vmap [quickhl]c <Plug>(quickhl-manual-clear)
-nmap [quickhl]M <Plug>(quickhl-manual-reset)
-xmap [quickhl]M <Plug>(quickhl-manual-reset)
-nmap [quickhl]j <Plug>(quickhl-cword-toggle)
-nmap [quickhl]] <Plug>(quickhl-tag-toggle)
+nmap \quickhl\m <Plug>(quickhl-manual-this)
+xmap \quickhl\m <Plug>(quickhl-manual-this)
+nmap \quickhl\w <Plug>(quickhl-manual-this-whole-word)
+xmap \quickhl\w <Plug>(quickhl-manual-this-whole-word)
+nmap \quickhl\c <Plug>(quickhl-manual-clear)
+vmap \quickhl\c <Plug>(quickhl-manual-clear)
+nmap \quickhl\M <Plug>(quickhl-manual-reset)
+xmap \quickhl\M <Plug>(quickhl-manual-reset)
+nmap \quickhl\j <Plug>(quickhl-cword-toggle)
+nmap \quickhl\] <Plug>(quickhl-tag-toggle)
 
 " vim-buftabline
-nmap [buftab]1 <Plug>BufTabLine.Go(1)
-nmap [buftab]2 <Plug>BufTabLine.Go(2)
-nmap [buftab]3 <Plug>BufTabLine.Go(3)
-nmap [buftab]4 <Plug>BufTabLine.Go(4)
-nmap [buftab]5 <Plug>BufTabLine.Go(5)
-nmap [buftab]6 <Plug>BufTabLine.Go(6)
-nmap [buftab]7 <Plug>BufTabLine.Go(7)
-nmap [buftab]8 <Plug>BufTabLine.Go(8)
-nmap [buftab]9 <Plug>BufTabLine.Go(9)
-nmap [buftab]0 <Plug>BufTabLine.Go(10)
+nmap \buftab\1 <Plug>BufTabLine.Go(1)
+nmap \buftab\2 <Plug>BufTabLine.Go(2)
+nmap \buftab\3 <Plug>BufTabLine.Go(3)
+nmap \buftab\4 <Plug>BufTabLine.Go(4)
+nmap \buftab\5 <Plug>BufTabLine.Go(5)
+nmap \buftab\6 <Plug>BufTabLine.Go(6)
+nmap \buftab\7 <Plug>BufTabLine.Go(7)
+nmap \buftab\8 <Plug>BufTabLine.Go(8)
+nmap \buftab\9 <Plug>BufTabLine.Go(9)
+nmap \buftab\0 <Plug>BufTabLine.Go(10)
 
 " gtags
 nmap \gtags\t :Gtags <C-r><C-w><CR>
