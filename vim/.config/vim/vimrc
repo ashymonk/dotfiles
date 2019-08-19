@@ -155,7 +155,7 @@ nmap <C-T> <C-T>zz
 nmap n nzz
 
 " refresh global reference
-noremap <F5> :!gtags
+noremap <F5> :!gtags<CR>
 
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
