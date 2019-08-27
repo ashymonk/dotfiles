@@ -6,16 +6,16 @@ TARGET_DIR=$HOME
 
 for package in $(ls -d */)
 do
-	stow -t $TARGET_DIR -D $package
+	stow -D -t $TARGET_DIR $package
 	if [ $? -ne 0 ]; then
 		echo "unstowing $package failed."
 		exit 1
 	fi
 done
 
-echo "**********************"
+echo "************************"
 echo "* uninstalled dotfiles *"
-echo "**********************"
+echo "************************"
 
 bash -li
 
