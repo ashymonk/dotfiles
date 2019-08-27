@@ -10,7 +10,7 @@ mkdir -p $TARGET_DIR/.local/share
 
 for package in $(ls -d */)
 do
-	stow -t $TARGET_DIR -R $package
+	stow -R --no-folding -t $TARGET_DIR $package
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1
