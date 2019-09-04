@@ -175,7 +175,7 @@ nmap <C-T> <C-T>zz
 nmap n nzz
 
 " refresh global reference
-noremap <F5> :!gtags<CR>
+noremap <F5> :!gtags -i<CR>
 
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
@@ -254,6 +254,8 @@ nmap \gtags\g :Gtags -g <C-r><C-w><CR>
 nmap \gtags\G :Gtags -g<Space>
 nmap \gtags\f :Gtags -f %<CR>
 nmap \gtags\F :Gtags -f<Space>
+nmap \gtags\p :Gtags -P <C-r><C-w><CR>
+nmap \gtags\P :Gtags -P<Space>
 nmap \gtags\j :GtagsCursor<CR>
 
 " }}}
@@ -265,6 +267,9 @@ command! Evim edit $MYVIMRC
 command! Svim split $MYVIMRC
 command! Tvim $tabedit $MYVIMRC
 command! Rvim source $MYVIMRC
+
+" open current directory
+command! Dir Explore .
 
 " grep into current directory.
 command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
