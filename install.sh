@@ -12,7 +12,7 @@ for package in $(ls -d */ | cut -d'/' -f1)
 do
 	[ -f $package/hook-pre-install ] && . $package/hook-pre-install
 
-	stow -R --no-folding --ignore hook-pre-install --ignore hook-post-install -t $TARGET_HOME $package
+	stow -R --ignore hook-pre-install --ignore hook-post-install -t $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1

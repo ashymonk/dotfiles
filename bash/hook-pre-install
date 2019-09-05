@@ -1,0 +1,6 @@
+#! /bin/sh
+
+. ../config
+
+mkdir -p $TARGET_HOME/.local/bin
+mkdir -p $XDG_DATA_HOME/bash
