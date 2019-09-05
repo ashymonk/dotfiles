@@ -100,7 +100,6 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
 
 alias cd='cdls'
 
@@ -142,4 +141,7 @@ cdls ()
 
 	cd $dir >/dev/null 2>&1
 }
+
+# plugin
+[[ -f ~/.local/bin/bashmarks.sh ]] && source ~/.local/bin/bashmarks.sh
 
