@@ -2,15 +2,15 @@
 set -u
 cd $(dirname $0)
 
-TARGET_DIR=$HOME
+. ./config
 
-mkdir -p $TARGET_DIR/.config
-mkdir -p $TARGET_DIR/.cache
-mkdir -p $TARGET_DIR/.local/share
+mkdir -p $TARGET_HOME/.config
+mkdir -p $TARGET_HOME/.cache
+mkdir -p $TARGET_HOME/.local/share
 
 for package in $(ls -d */)
 do
-	stow -R --no-folding -t $TARGET_DIR $package
+	stow -R --no-folding -t $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1
