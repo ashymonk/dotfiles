@@ -10,15 +10,15 @@ mkdir -p $XDG_CACHE_HOME
 
 for package in $(ls -d */ | cut -d'/' -f1)
 do
-	[ -f $package/hook-pre-install ] && . $package/hook-pre-install
+	[ -f $package/hook-pre-install ] && (\cd $package && sh hook-pre-install)
 
-	stow -R --ignore hook-pre-install --ignore hook-post-install -t $TARGET_HOME $package
+	stow --restow --ignore hook-pre-install --ignore hook-post-install --target $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1
 	fi
 
-	[ -f $package/hook-post-install ] && . $package/hook-post-install
+	[ -f $package/hook-post-install ] && (\cd $package && sh hook-post-install)
 done
 
 echo "**********************"

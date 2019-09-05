@@ -6,7 +6,7 @@ cd $(dirname $0)
 
 for package in $(ls -d */ | cut -d'/' -f1)
 do
-	stow -D -t $TARGET_HOME $package
+	stow --delete --target $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "unstowing $package failed."
 		exit 1
