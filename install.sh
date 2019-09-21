@@ -2,19 +2,23 @@
 set -u
 cd $(dirname $0)
 
-TARGET_DIR=$HOME
+. ./config
 
-mkdir -p $TARGET_DIR/.config
-mkdir -p $TARGET_DIR/.cache
-mkdir -p $TARGET_DIR/.local/share
+mkdir -p $XDG_CONFIG_HOME
+mkdir -p $XDG_DATA_HOME
+mkdir -p $XDG_CACHE_HOME
 
-for package in $(ls -d */)
+for package in $(ls -d */ | cut -d'/' -f1)
 do
-	stow -R --no-folding -t $TARGET_DIR $package
+	[ -f $package/hook-pre-install ] && (\cd $package && sh hook-pre-install)
+
+	stow --restow --ignore hook-pre-install --ignore hook-post-install --target $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "stowing $package failed."
 		exit 1
 	fi
+
+	[ -f $package/hook-post-install ] && (\cd $package && sh hook-post-install)
 done
 
 echo "**********************"
