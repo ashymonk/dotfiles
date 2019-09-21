@@ -2,11 +2,11 @@
 set -u
 cd $(dirname $0)
 
-TARGET_DIR=$HOME
+. ./config
 
-for package in $(ls -d */)
+for package in $(ls -d */ | cut -d'/' -f1)
 do
-	stow -D -t $TARGET_DIR $package
+	stow --delete --target $TARGET_HOME $package
 	if [ $? -ne 0 ]; then
 		echo "unstowing $package failed."
 		exit 1
