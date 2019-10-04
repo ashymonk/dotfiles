@@ -189,6 +189,7 @@ let mapleader = ","
 nmap <Leader>g \grep\
 nmap <Leader>q \quickfix\
 nmap <Leader>b \buffer\
+nmap <Leader>w \windows\
 
 " grep
 noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -207,6 +208,17 @@ noremap \quickfix\N :cNext<CR>
 noremap \buffer\n :bnext<CR>
 noremap \buffer\p :bprev<CR>
 noremap \buffer\d :bdelete<CR>
+
+" windows
+noremap \windows\s :split<CR>
+noremap \windows\v :vsplit<CR>
+noremap \windows\n :new<CR>
+noremap \windows\c :close<CR>
+noremap \windows\o :only<CR>
+noremap \windows\h :wincmd h<CR>
+noremap \windows\j :wincmd j<CR>
+noremap \windows\k :wincmd k<CR>
+noremap \windows\l :wincmd l<CR>
 
 
 " *************************
