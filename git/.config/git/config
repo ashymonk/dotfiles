@@ -10,10 +10,13 @@
 	dcw = diff --cached --color-words
 	b = branch
 	co = checkout
+	cop = checkout -p
 	a = add
+	ap = add -p
 	ci = commit
 	cia = commit --amend
 	l = log
+	ln = log --name-only
 	lp = log -p
 	lpw = log -p --color-words
 	la = log --remotes --branches
