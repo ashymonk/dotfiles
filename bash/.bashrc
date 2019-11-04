@@ -102,6 +102,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 
 alias cd='cdls'
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
