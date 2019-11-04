@@ -331,6 +331,8 @@ colorscheme desert
 
 call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
 
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
