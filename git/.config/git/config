@@ -9,12 +9,20 @@
 	dc = diff --cached
 	dcw = diff --cached --color-words
 	b = branch
+	bv = branch -v
+	bvv = branch -vv
+	ba = branch --all
 	co = checkout
-	cop = checkout -p
+	cop = checkout --patch
 	a = add
-	ap = add -p
+	ap = add --patch
 	ci = commit
 	cia = commit --amend
+	cip = commit --patch
+	rb = rebase
+	rbi = rebase --interactive
+	rbc = rebase --continue
+	rba = rebase --abort
 	l = log
 	ln = log --name-only
 	lp = log -p
@@ -24,6 +32,9 @@
 
 [log]
 	decorate = true
+
+[ghq]
+	root = ~/src
 
 [include]
 	path = ~/.config/git/config.local
