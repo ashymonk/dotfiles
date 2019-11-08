@@ -114,6 +114,8 @@ set smartcase
 " open file
 set hidden
 
+set autochdir
+
 " }}}
 
 " }}}
@@ -133,12 +135,17 @@ vnoremap <C-C> y
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
-" tag jump
+" jump by tagstack
 nmap <C-]> <C-]>zz
 nmap <C-T> <C-T>zz
 
+" jump by jumplist
+nmap <C-O> <C-O>zz
+nmap <C-I> <C-I>zz
+
 " search
 nmap n nzz
+nmap N Nzz
 
 " refresh global reference
 noremap <F5> :!gtags -i<CR>
