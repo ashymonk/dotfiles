@@ -103,6 +103,7 @@ alias la='ls -A'
 
 alias cd='cdls'
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias words='tr -cs "A-Za-z" "\n"'
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
