@@ -1,5 +1,12 @@
 # ~/.profile
 
+# umask
+if [ $UID -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
+	umask 002
+else
+	umask 022
+fi
+
 # Language
 case $TERM in
 	linux) LANG=C ;;
