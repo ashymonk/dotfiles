@@ -96,7 +96,8 @@ set showtabline=2
 "programming" {{{
 
 " clipboard
-set clipboard+=unnamed
+set clipboard&
+set clipboard^=unnamed,unnamedplus
 
 " search tag file in previous directory recusively.
 set tags=./tags;
@@ -247,10 +248,11 @@ nmap \gtags\j :GtagsCursor<CR>
 
 "COMMAND" {{{
 
+" edit configs
+command! Ecfg edit $XDG_CONFIG_HOME
+
 " edit and reload vimrc
 command! Evim edit $MYVIMRC
-command! Svim split $MYVIMRC
-command! Tvim $tabedit $MYVIMRC
 command! Rvim source $MYVIMRC
 
 " open current directory
@@ -296,7 +298,7 @@ augroup END
 
 " syntax highlight
 syntax on
-colorscheme desert
+colorscheme pablo
 
 " font
 if has('gui_running')
