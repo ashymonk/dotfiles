@@ -2,7 +2,7 @@
 set -u
 cd $(dirname $0)
 
-. ./config
+. ./env.sh
 
 for package in $(ls -d */ | cut -d'/' -f1)
 do

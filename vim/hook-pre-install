@@ -1,6 +1,4 @@
 #! /bin/sh
 set -u
 
-. ../config
-
 mkdir -p $XDG_CACHE_HOME/vim
