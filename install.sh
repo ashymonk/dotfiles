@@ -2,7 +2,7 @@
 set -u
 cd $(dirname $0)
 
-. ./config
+. ./env.sh
 
 mkdir -p $XDG_CONFIG_HOME
 mkdir -p $XDG_DATA_HOME
