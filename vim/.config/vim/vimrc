@@ -44,11 +44,29 @@ let g:quickhl_manual_colors = [
 
 " }}}
 
-"encoding and format" {{{
+"basic" {{{
 
+" term
+set ttymouse=sgr
+
+" encoding and format
 set encoding=utf-8
 set fileformats=unix,dos
 set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
+
+" mouse
+set mouse=a
+
+" search
+set ignorecase
+set smartcase
+
+" buffer
+set hidden
+
+" clipboard
+set clipboard&
+set clipboard^=unnamed,unnamedplus
 
 " }}}
 
@@ -95,10 +113,6 @@ set showtabline=2
 
 "programming" {{{
 
-" clipboard
-set clipboard&
-set clipboard^=unnamed,unnamedplus
-
 " search tag file in previous directory recusively.
 set tags=./tags;
 
@@ -107,13 +121,6 @@ set cindent
 
 " indent width
 set shiftwidth=4
-
-" buffer search
-set ignorecase
-set smartcase
-
-" open file
-set hidden
 
 " }}}
 
