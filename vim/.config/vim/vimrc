@@ -307,8 +307,13 @@ colorscheme koehler
 
 " font
 if has('gui_running')
-	set guifont=Ricty_Diminished:h10
-	set guifontwide=Ricty_Diminished:h10
+	if has('gui_win32')
+		set guifont=Ricty_Diminished:h10
+		set guifontwide=Ricty_Diminished:h10
+	else
+		set guifont=Ricty\ Diminished\ 10
+		set guifontwide=Ricty\ Diminished\ 10
+	endif
 endif
 
 " Width Class Ambiguous is twice the width of ASCII characters.

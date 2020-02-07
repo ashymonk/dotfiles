@@ -1,6 +1,8 @@
 [core]
 	excludesfile = ~/.gitignore
+	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
+	pager = LESSCHARSET=utf-8 less -Sx4
 
 [alias]
 	st = status
@@ -32,6 +34,12 @@
 
 [log]
 	decorate = true
+
+[diff "cp932"]
+	textconv = iconv -f cp932 -t utf-8
+
+[diff "sjis"]
+	textconv = iconv -f sjis -t utf-8
 
 [ghq]
 	root = ~/src
