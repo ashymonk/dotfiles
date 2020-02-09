@@ -126,6 +126,24 @@ set shiftwidth=4
 
 " }}}
 
+"PLUGIN" {{{
+
+call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
+
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'ap/vim-buftabline'
+Plug 't9md/vim-quickhl'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'mechatroner/rainbow_csv'
+Plug 'rakr/vim-one'
+
+call plug#end()
+
+" }}}
+
 "KEYMAP" {{{
 
 " ***************************
@@ -303,7 +321,14 @@ augroup END
 
 " syntax highlight
 syntax on
-colorscheme koehler
+
+if !empty( glob("$XDG_CONFIG_HOME/vim" . '/plugged/vim-one') )
+	colorscheme one
+	set background=light
+else
+	colorscheme koehler
+	set background=dark
+endif
 
 " font
 if has('gui_running')
@@ -339,23 +364,6 @@ set listchars=tab:.\ ,trail:-,eol:~,extends:>,precedes:<,nbsp:%
 
 " 折り返し
 set nowrap
-
-" }}}
-
-"PLUGIN" {{{
-
-call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
-
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'ap/vim-buftabline'
-Plug 't9md/vim-quickhl'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'mechatroner/rainbow_csv'
-
-call plug#end()
 
 " }}}
 
