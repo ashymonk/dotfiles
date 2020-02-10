@@ -138,7 +138,7 @@ Plug 't9md/vim-quickhl'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'mechatroner/rainbow_csv'
-Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -322,8 +322,9 @@ augroup END
 " syntax highlight
 syntax on
 
-if !empty( glob("$XDG_CONFIG_HOME/vim" . '/plugged/vim-one') )
-	colorscheme one
+if !empty( glob("$XDG_CONFIG_HOME/vim" . '/plugged/gruvbox') )
+	let g:gruvbox_contrast_light = 'hard'
+	colorscheme gruvbox
 	set background=light
 else
 	colorscheme koehler
@@ -333,11 +334,11 @@ endif
 " font
 if has('gui_running')
 	if has('gui_win32')
-		set guifont=Ricty_Diminished:h10
-		set guifontwide=Ricty_Diminished:h10
+		set guifont=Cica:h10
+		set guifontwide=Cica:h10
 	else
-		set guifont=Ricty\ Diminished\ 10
-		set guifontwide=Ricty\ Diminished\ 10
+		set guifont=Cica\ 10
+		set guifontwide=Cica\ 10
 	endif
 endif
 
