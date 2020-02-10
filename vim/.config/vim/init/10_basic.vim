@@ -2,12 +2,12 @@
 " environment {{{
 
 " support XDG
-set undodir=$XDG_CACHE_HOME/vim
-set directory=$XDG_CACHE_HOME/vim
-set backupdir=$XDG_CACHE_HOME/vim
-set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+set undodir=$VIM_CACHE_HOME
+set directory=$VIM_CACHE_HOME
+set backupdir=$VIM_CACHE_HOME
+set viminfo+='1000,n$VIM_CACHE_HOME/viminfo
 
-let g:netrw_home = $XDG_CACHE_HOME . '/vim'
+let g:netrw_home = $VIM_CACHE_HOME
 
 " gtags
 let g:Gtags_Close_When_Single = 1
