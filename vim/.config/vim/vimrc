@@ -52,27 +52,11 @@ call plug#end()
 
 "AUTOCMD" {{{
 
-" vim
-autocmd FileType vim setlocal foldmethod=marker
-
 " rust
 autocmd FileType rust nmap gd <Plug>(rust-def)
 autocmd FileType rust nmap gs <Plug>(rust-def-split)
 autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-" 行末ブランクをハイライトする
-augroup HighlightTrailingSpaces
-	autocmd!
-	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=DarkRed ctermbg=DarkRed
-	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
-
-" Quickfix
-augroup qf
-	autocmd!
-	autocmd QuickFixCmdPost grep,grepadd,vimgrep,vimgrepadd,cscope cwindow
-augroup END
 
 " }}}
 
