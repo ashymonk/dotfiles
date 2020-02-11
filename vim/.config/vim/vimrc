@@ -29,6 +29,11 @@ endif
 
 let $MYVIMRC = $VIM_CONFIG_HOME . '/vimrc'
 
-set runtimepath=$VIM_CONFIG_HOME,$VIM,$VIMRUNTIME
+if !exists("set_runtimepath")
+	set runtimepath&
+	set runtimepath^=$VIM_CONFIG_HOME
+	let set_runtimepath = 1
+endif
+
 runtime! init/*.vim
 
