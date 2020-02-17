@@ -43,6 +43,7 @@ nmap <Leader>w \windows\
 
 " grep
 noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
+noremap \grep\b :vimgrep /<C-r><C-w>/ % \| cwin<CR>
 noremap \grep\G :Grep<Space>
 
 " quickfix

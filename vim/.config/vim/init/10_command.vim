@@ -1,9 +1,10 @@
 
 " edit configs
-command! Ecfg edit $XDG_CONFIG_HOME
+command! Ecfg Explore $XDG_CONFIG_HOME
 
 " edit and reload vimrc
 command! Evim edit $MYVIMRC
+command! EVim Explore $VIM_CONFIG_HOME/init
 command! Rvim source $MYVIMRC
 
 " open current directory

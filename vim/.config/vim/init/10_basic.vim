@@ -105,12 +105,16 @@ colorscheme koehler
 
 " font
 if has('gui_running')
+
+	set linespace=0
+
 	if has('gui_win32')
-		set guifont=Cica:h10
-		set guifontwide=Cica:h10
-	else
-		set guifont=Cica\ 10
-		set guifontwide=Cica\ 10
+		set guifont=VL_Gothic:h10
+		set guifontwide=VL_Gothic:h10
+		set renderoptions=type:directx,renmode:5
+	elseif has('gui_gtk2') || has('gui_gtk3')
+		set guifont=VL\ Gothic\ 10
+		set guifontwide=VL\ Gothic\ 10
 	endif
 endif
 
