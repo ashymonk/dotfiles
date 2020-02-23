@@ -109,12 +109,12 @@ if has('gui_running')
 	set linespace=0
 
 	if has('gui_win32')
-		set guifont=VL_Gothic:h10
-		set guifontwide=VL_Gothic:h10
+		set guifont=Ricty_Diminished:h10
+		set guifontwide=Ricty_Diminished:h10
 		set renderoptions=type:directx,renmode:5
 	elseif has('gui_gtk2') || has('gui_gtk3')
-		set guifont=VL\ Gothic\ 10
-		set guifontwide=VL\ Gothic\ 10
+		set guifont=Ricty\ Diminished\ 10
+		set guifontwide=Ricty\ Diminished\ 10
 	endif
 endif
 
@@ -137,7 +137,7 @@ set tabstop=4
 set list
 
 " 不可視文字の表示記号
-set listchars=tab:.\ ,trail:-,eol:~,extends:>,precedes:<,nbsp:%
+set listchars=tab:.\ ,trail:-,extends:>,precedes:<,nbsp:%
 
 " 折り返し
 set nowrap

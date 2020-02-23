@@ -8,10 +8,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
+Plug 'yasukotelin/shirotelin'
+Plug 'NLKNguyen/c-syntax.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'mechatroner/rainbow_csv'
-Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -20,6 +21,14 @@ call plug#end()
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 0
+
+" }}}
+
+"shirotelin" {{{
+
+if !empty( glob(s:vim_plug_dir . '/shirotelin') )
+	colorscheme shirotelin
+endif
 
 " }}}
 
@@ -32,16 +41,6 @@ autocmd FileType rust nmap gd <Plug>(rust-def)
 autocmd FileType rust nmap gs <Plug>(rust-def-split)
 autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-" }}}
-
-"gruvbox" {{{
-
-if !empty( glob(s:vim_plug_dir . '/gruvbox') )
-	set background=light
-	let g:gruvbox_contrast_light = 'hard'
-	colorscheme gruvbox
-endif
 
 " }}}
 
