@@ -1,370 +1,39 @@
 
-"OPTIONS" {{{
-
-" environment {{{
-
-" support XDG
-set undodir=$XDG_CACHE_HOME/vim
-set directory=$XDG_CACHE_HOME/vim
-set backupdir=$XDG_CACHE_HOME/vim
-set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-
-let $MYVIMRC = $XDG_CONFIG_HOME . '/vim/vimrc'
-let g:netrw_home = $XDG_CACHE_HOME . '/vim'
-
-" vim-racer
-let g:racer_cmd = $CARGO_HOME . '/bin/racer'
-let g:racer_experimental_completer = 1
-
-" buftabline
-let g:buftabline_numbers = 2
-let g:buftabline_indicators = 1
-let g:buftabline_separators = 0
-
-" gtags
-let g:Gtags_Close_When_Single = 1
-
-" quickhl
-let g:quickhl_manual_colors = [
-	\ "cterm=NONE ctermfg=16 ctermbg=153 gui=NONE guifg=#ffffff guibg=#0a7383",
-	\ "cterm=NONE ctermfg=7  ctermbg=1   gui=NONE guibg=#a07040 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=2   gui=NONE guibg=#4070a0 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=3   gui=NONE guibg=#40a070 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=4   gui=NONE guibg=#70a040 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=5   gui=NONE guibg=#0070e0 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=6   gui=NONE guibg=#007020 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=21  gui=NONE guibg=#d4a00d guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=22  gui=NONE guibg=#06287e guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=45  gui=NONE guibg=#5b3674 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=16  gui=NONE guibg=#4c8f2f guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=50  gui=NONE guibg=#1060a0 guifg=#ffffff",
-	\ "cterm=NONE ctermfg=7  ctermbg=56  gui=NONE guibg=#a0b0c0 guifg=black",
-	\ ]
-
-" }}}
-
-"basic" {{{
-
-" term
-set ttymouse=sgr
-
-" encoding and format
-set encoding=utf-8
-set fileformats=unix,dos
-set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
-
-" mouse
-set mouse=a
-
-" search
-set ignorecase
-set smartcase
-
-" buffer
-set hidden
-
-" clipboard
-set clipboard&
-set clipboard^=unnamed,unnamedplus
-
-" }}}
-
-"statusline {{{
-
-" ファイル名表示
-set statusline=%F
-
-" 変更チェック表示
-set statusline+=%m
-
-" 読み込み専用かどうか表示
-set statusline+=%r
-
-" ヘルプページなら[HELP]と表示
-set statusline+=%h
-
-" プレビューウインドウなら[Prevew]と表示
-set statusline+=%w
-
-" これ以降は右寄せ表示
-set statusline+=%=
-
-" ファイルフォーマット
-set statusline+=[FF=%{&fileformat}]
-
-" ファイルエンコード
-set statusline+=[FENC=%{&fileencoding}]
-
-" 現在行数/全行数
-set statusline+=[LOW=%l/%L]
-
-" ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-set laststatus=2
-
-" }}}
-
-"tabline {{{
-
-" show tabline when one tab is open.
-set showtabline=2
-
-" }}}
-
-"programming" {{{
-
-" search tag file in previous directory recusively.
-set tags=./tags;
-
-" indent
-set cindent
-
-" indent width
-set shiftwidth=4
-
-" }}}
-
-" }}}
-
-"PLUGIN" {{{
-
-call plug#begin( "$XDG_CONFIG_HOME/vim" . '/plugged')
-
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'ap/vim-buftabline'
-Plug 't9md/vim-quickhl'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'mechatroner/rainbow_csv'
-Plug 'morhetz/gruvbox'
-
-call plug#end()
-
-" }}}
-
-"KEYMAP" {{{
-
-" ***************************
-" * standard command keymap *
-" ***************************
-" select all
-nnoremap <C-A> ggVG
-
-" yank
-vnoremap <C-C> y
-
-" buffer
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
-
-" jump by tagstack
-nmap <C-]> <C-]>zz
-nmap <C-T> <C-T>zz
-
-" jump by jumplist
-nmap <C-O> <C-O>zz
-nmap <C-I> <C-I>zz
-
-" search
-nmap n nzz
-nmap N Nzz
-
-" refresh global reference
-noremap <F5> :!gtags -i<CR>
-
-" ESC disable IME
-inoremap <ESC> <ESC>:set iminsert=0<CR>
-
-" windows とのクリップボード共有コピー
-if has('win32unix')
-  vnoremap "*y :'<,'>w !cat > /dev/clipboard
+if !exists('$XDG_CONFIG_HOME')
+	let $XDG_CONFIG_HOME = $HOME . '/.config'
 endif
 
-let mapleader = ","
-nmap <Leader>g \grep\
-nmap <Leader>q \quickfix\
-nmap <Leader>b \buffer\
-nmap <Leader>w \windows\
-
-" grep
-noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
-noremap \grep\G :Grep<Space>
-
-" quickfix
-noremap \quickfix\o :copen<CR>
-noremap \quickfix\c :cclose<CR>
-noremap \quickfix\w :cwindow<CR>
-noremap \quickfix\b :cbottom<CR>
-noremap \quickfix\n :cnext<CR>
-noremap \quickfix\p :cprevious<CR>
-noremap \quickfix\N :cNext<CR>
-
-" buffer
-noremap \buffer\n :bnext<CR>
-noremap \buffer\p :bprev<CR>
-noremap \buffer\d :bdelete<CR>
-
-" windows
-noremap \windows\s :split<CR>
-noremap \windows\v :vsplit<CR>
-noremap \windows\n :new<CR>
-noremap \windows\c :close<CR>
-noremap \windows\o :only<CR>
-noremap \windows\h :wincmd h<CR>
-noremap \windows\j :wincmd j<CR>
-noremap \windows\k :wincmd k<CR>
-noremap \windows\l :wincmd l<CR>
-
-
-" *************************
-" * plugin command keymap *
-" *************************
-
-let mapleader = "\<Space>"
-nmap <Leader>h \quickhl\
-vmap <Leader>h \quickhl\
-nmap <Leader>b \buftab\
-nmap <Leader>j \gtags\
-
-" vim-quickhl
-nmap \quickhl\m <Plug>(quickhl-manual-this)
-xmap \quickhl\m <Plug>(quickhl-manual-this)
-nmap \quickhl\w <Plug>(quickhl-manual-this-whole-word)
-xmap \quickhl\w <Plug>(quickhl-manual-this-whole-word)
-nmap \quickhl\c <Plug>(quickhl-manual-clear)
-vmap \quickhl\c <Plug>(quickhl-manual-clear)
-nmap \quickhl\M <Plug>(quickhl-manual-reset)
-xmap \quickhl\M <Plug>(quickhl-manual-reset)
-nmap \quickhl\j <Plug>(quickhl-cword-toggle)
-nmap \quickhl\] <Plug>(quickhl-tag-toggle)
-
-" vim-buftabline
-nmap \buftab\1 <Plug>BufTabLine.Go(1)
-nmap \buftab\2 <Plug>BufTabLine.Go(2)
-nmap \buftab\3 <Plug>BufTabLine.Go(3)
-nmap \buftab\4 <Plug>BufTabLine.Go(4)
-nmap \buftab\5 <Plug>BufTabLine.Go(5)
-nmap \buftab\6 <Plug>BufTabLine.Go(6)
-nmap \buftab\7 <Plug>BufTabLine.Go(7)
-nmap \buftab\8 <Plug>BufTabLine.Go(8)
-nmap \buftab\9 <Plug>BufTabLine.Go(9)
-nmap \buftab\0 <Plug>BufTabLine.Go(10)
-
-" gtags
-nmap \gtags\t :Gtags <C-r><C-w><CR>
-nmap \gtags\T :Gtags<Space>
-nmap \gtags\r :Gtags -r <C-r><C-w><CR>
-nmap \gtags\R :Gtags -r<Space>
-nmap \gtags\s :Gtags -s <C-r><C-w><CR>
-nmap \gtags\S :Gtags -s<Space>
-nmap \gtags\g :Gtags -g <C-r><C-w><CR>
-nmap \gtags\G :Gtags -g<Space>
-nmap \gtags\f :Gtags -f %<CR>
-nmap \gtags\F :Gtags -f<Space>
-nmap \gtags\p :Gtags -P <C-r><C-w><CR>
-nmap \gtags\P :Gtags -P<Space>
-nmap \gtags\j :GtagsCursor<CR>
-
-" }}}
-
-"COMMAND" {{{
-
-" edit configs
-command! Ecfg edit $XDG_CONFIG_HOME
-
-" edit and reload vimrc
-command! Evim edit $MYVIMRC
-command! Rvim source $MYVIMRC
-
-" open current directory
-command! Dir Explore .
-
-" grep into current directory.
-command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
-function! s:grep(args)
-    let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
-    execute 'vimgrep' '/' . a:args[0] . '/j ' . target
-    if len(getqflist()) != 0 | copen | endif
-endfunction
-
-" }}}
-
-"AUTOCMD" {{{
-
-" vim
-autocmd FileType vim setlocal foldmethod=marker
-
-" rust
-autocmd FileType rust nmap gd <Plug>(rust-def)
-autocmd FileType rust nmap gs <Plug>(rust-def-split)
-autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
-autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-" 行末ブランクをハイライトする
-augroup HighlightTrailingSpaces
-	autocmd!
-	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=DarkRed ctermbg=DarkRed
-	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
-
-" Quickfix
-augroup qf
-	autocmd!
-	autocmd QuickFixCmdPost grep,grepadd,vimgrep,vimgrepadd,cscope cwindow
-augroup END
-
-" }}}
-
-"LOOKS" {{{
-
-" syntax highlight
-syntax on
-
-if !empty( glob("$XDG_CONFIG_HOME/vim" . '/plugged/gruvbox') )
-	let g:gruvbox_contrast_light = 'hard'
-	colorscheme gruvbox
-	set background=light
-else
-	colorscheme koehler
-	set background=dark
+if !exists('$XDG_DATA_HOME')
+	let $XDG_DATA_HOME = $HOME . '/.local/share'
 endif
 
-" font
-if has('gui_running')
-	if has('gui_win32')
-		set guifont=Cica:h10
-		set guifontwide=Cica:h10
-	else
-		set guifont=Cica\ 10
-		set guifontwide=Cica\ 10
-	endif
+if !exists('$XDG_CACHE_HOME')
+	let $XDG_CACHE_HOME = $HOME . '/.cache'
 endif
 
-" Width Class Ambiguous is twice the width of ASCII characters.
-set ambiwidth=double
+let $VIM_CONFIG_HOME = $XDG_CONFIG_HOME . '/vim'
+let $VIM_DATA_HOME = $XDG_DATA_HOME . '/vim'
+let $VIM_CACHE_HOME = $XDG_CACHE_HOME . '/vim'
 
-" 行数表示
-set number
+if empty( glob($VIM_CONFIG_HOME) )
+	call mkdir($VIM_CONFIG_HOME, 'p')
+endif
 
-" 検索時ハイライト
-set hlsearch
+if empty( glob($VIM_DATA_HOME) )
+	call mkdir($VIM_DATA_HOME, 'p')
+endif
 
-" カーソルがある行のライン非表示
-set nocursorline
+if empty( glob($VIM_CACHE_HOME) )
+	call mkdir($VIM_CACHE_HOME, 'p')
+endif
 
-" タブ幅 4 文字
-set tabstop=4
+let $MYVIMRC = $VIM_CONFIG_HOME . '/vimrc'
 
-" 不可視文字を表示
-set list
+if !exists("set_runtimepath")
+	set runtimepath&
+	set runtimepath^=$VIM_CONFIG_HOME
+	let set_runtimepath = 1
+endif
 
-" 不可視文字の表示記号
-set listchars=tab:.\ ,trail:-,eol:~,extends:>,precedes:<,nbsp:%
-
-" 折り返し
-set nowrap
-
-" }}}
+runtime! init/*.vim
 
