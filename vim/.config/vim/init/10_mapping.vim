@@ -36,10 +36,17 @@ if has('win32unix')
 endif
 
 let mapleader = ","
+nmap <Leader>w \write\
 nmap <Leader>g \grep\
 nmap <Leader>q \quickfix\
 nmap <Leader>b \buffer\
-nmap <Leader>w \windows\
+nmap <Leader>e \explore\
+nmap <Leader>v \vimrc\
+
+" write
+noremap \write\w :write<CR>
+noremap \write\q :wq<CR>
+noremap \write\W :write!<CR>
 
 " grep
 noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -59,17 +66,22 @@ noremap \quickfix\N :cNext<CR>
 noremap \buffer\n :bnext<CR>
 noremap \buffer\p :bprev<CR>
 noremap \buffer\d :bdelete<CR>
+noremap \buffer\D :bdelete!<CR>
+noremap \buffer\l :ls<CR>
 
-" windows
-noremap \windows\s :split<CR>
-noremap \windows\v :vsplit<CR>
-noremap \windows\n :new<CR>
-noremap \windows\c :close<CR>
-noremap \windows\o :only<CR>
-noremap \windows\h :wincmd h<CR>
-noremap \windows\j :wincmd j<CR>
-noremap \windows\k :wincmd k<CR>
-noremap \windows\l :wincmd l<CR>
+" explore
+noremap \explore\e :Explore<CR>
+noremap \explore\E :Explore .<CR>
+noremap \explore\s :Sexplore<CR>
+noremap \explore\S :Sexplore .<CR>
+noremap \explore\v :Vexplore<CR>
+noremap \explore\V :Vexplore .<CR>
+
+" vimrc
+noremap \vimrc\r :source $MYVIMRC<CR>
+noremap \vimrc\e :edit $MYVIMRC<CR>
+noremap \vimrc\c :Explore $VIM_CONFIG_HOME<CR>
+noremap \vimrc\p :Explore $VIM_DATA_HOME<CR>
 
 
 " *************************

@@ -2,7 +2,7 @@
 	excludesfile = ~/.gitignore
 	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
-	pager = LESSCHARSET=utf-8 less -Sx4
+	pager = LESSCHARSET=utf-8 less -x4
 
 [alias]
 	st = status
@@ -13,14 +13,23 @@
 	b = branch
 	bv = branch -v
 	bvv = branch -vv
+	bm = branch --move
+	bd = branch --delete
+	bD = branch --delete --force
 	ba = branch --all
 	co = checkout
+	cot = checkout --track
 	cop = checkout --patch
 	a = add
 	ap = add --patch
+	ai = add --interactive
 	ci = commit
 	cia = commit --amend
 	cip = commit --patch
+	rs = reset
+	rss = reset --soft
+	rsh = reset --hard
+	rsk = reset --keep
 	rb = rebase
 	rbi = rebase --interactive
 	rbc = rebase --continue
@@ -31,6 +40,17 @@
 	lpw = log -p --color-words
 	la = log --remotes --branches
 	lg = log --graph --oneline --format=\"%C(green)%h%C(reset) [%<(12,trunc)%aN] [%<(12,trunc)%cN] %s %C(bold red)%d%C(reset)\"
+	rmt = remote
+	rmtv = remote -v
+	rmtvv = remote -vv
+	rmtadd = remote add
+	rmtrem = remote remove
+	rmtset = remote set-url
+	rmtren = remote rename
+	cf = config
+	cfs = config --system
+	cfg = config --global
+	cfl = config --local
 
 [log]
 	decorate = true

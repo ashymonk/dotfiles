@@ -107,6 +107,8 @@ colorscheme koehler
 if has('gui_running')
 
 	set linespace=0
+	set guioptions-=m
+	set guioptions-=T
 
 	if has('gui_win32')
 		set guifont=Ricty_Diminished:h10
