@@ -1,0 +1,3 @@
+#! /bin/sh
+
+mkdir -p $TARGET_HOME/bin
