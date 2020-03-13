@@ -30,11 +30,6 @@ noremap <F5> :!gtags -i<CR>
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
-" windows とのクリップボード共有コピー
-if has('win32unix')
-  vnoremap "*y :'<,'>w !cat > /dev/clipboard
-endif
-
 let mapleader = ","
 nmap <Leader>w \write\
 nmap <Leader>g \grep\
@@ -45,8 +40,9 @@ nmap <Leader>v \vimrc\
 
 " write
 noremap \write\w :write<CR>
-noremap \write\q :wq<CR>
 noremap \write\W :write!<CR>
+noremap \write\q :wq<CR>
+noremap \write\Q :wq!<CR>
 
 " grep
 noremap \grep\g :vimgrep /<C-r><C-w>/ **/* \| cwin<CR>
@@ -63,11 +59,12 @@ noremap \quickfix\p :cprevious<CR>
 noremap \quickfix\N :cNext<CR>
 
 " buffer
-noremap \buffer\n :bnext<CR>
-noremap \buffer\p :bprev<CR>
 noremap \buffer\d :bdelete<CR>
 noremap \buffer\D :bdelete!<CR>
+noremap \buffer\w :bwipeout<CR>
+noremap \buffer\W :bwipeout!<CR>
 noremap \buffer\l :ls<CR>
+noremap \buffer\n :enew<CR>
 
 " explore
 noremap \explore\e :Explore<CR>
@@ -80,8 +77,8 @@ noremap \explore\V :Vexplore .<CR>
 " vimrc
 noremap \vimrc\r :source $MYVIMRC<CR>
 noremap \vimrc\e :edit $MYVIMRC<CR>
-noremap \vimrc\c :Explore $VIM_CONFIG_HOME<CR>
-noremap \vimrc\p :Explore $VIM_DATA_HOME<CR>
+noremap \vimrc\E :Explore $VIM_CONFIG_HOME/init<CR>
+noremap \vimrc\p :Explore $VIM_DATA_HOME/plugged<CR>
 
 
 " *************************

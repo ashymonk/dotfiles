@@ -7,7 +7,11 @@ set directory=$VIM_CACHE_HOME
 set backupdir=$VIM_CACHE_HOME
 set viminfo+='1000,n$VIM_CACHE_HOME/viminfo
 
+" netrw
 let g:netrw_home = $VIM_CACHE_HOME
+let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 0
 
 " gtags
 let g:Gtags_Close_When_Single = 1
@@ -106,7 +110,7 @@ colorscheme koehler
 " font
 if has('gui_running')
 
-	set linespace=0
+	set linespace=-1
 	set guioptions-=m
 	set guioptions-=T
 

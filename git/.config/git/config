@@ -1,11 +1,12 @@
 [core]
-	excludesfile = ~/.gitignore
 	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
 	pager = LESSCHARSET=utf-8 less -x4
 
 [alias]
+	alias = config --get-regexp alias.*
 	st = status
+	sts = status -s
 	d = diff
 	dw = diff --color-words
 	dc = diff --cached
@@ -39,7 +40,7 @@
 	lp = log -p
 	lpw = log -p --color-words
 	la = log --remotes --branches
-	lg = log --graph --oneline --format=\"%C(green)%h%C(reset) [%<(12,trunc)%aN] [%<(12,trunc)%cN] %s %C(bold red)%d%C(reset)\"
+	lg = -c \"core.pager=LESSCHARSET=utf-8 less -Sx4\" log --graph --oneline --format=\"%C(green)%h%C(reset) [%<(12,trunc)%aN] [%<(12,trunc)%cN] %s %C(bold red)%d%C(reset)\"
 	rmt = remote
 	rmtv = remote -v
 	rmtvv = remote -vv

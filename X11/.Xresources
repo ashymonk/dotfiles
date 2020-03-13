@@ -13,34 +13,36 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 URxvt.visualBell:           true
 URxvt.saveLines:            3000
-URxvt.fading:               30
 
 !! Font list and Spacing
 URxvt.font:                 xft:Ricty Diminished-10
 URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
 
-!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-URxvt.depth:                32
-URxvt.color0:               [92]#282828
-URxvt.color1:               [92]#cc241d
-URxvt.color2:               [92]#98971a
-URxvt.color3:               [92]#d79921
-URxvt.color4:               [92]#458588
-URxvt.color5:               [92]#b16286
-URxvt.color6:               [92]#689d6a
-URxvt.color7:               [92]#a89984
-URxvt.color8:               [92]#928374
-URxvt.color9:               [92]#fb4934
-URxvt.color10:              [92]#b8bb26
-URxvt.color11:              [92]#fabd2f
-URxvt.color12:              [92]#83a598
-URxvt.color13:              [92]#d3869b
-URxvt.color14:              [92]#8ec07c
-URxvt.color15:              [92]#ebdbb2
-URxvt.foreground:           [92]#ebdbb2
-URxvt.background:           [92]#282828
-URxvt.colorIT:              [92]#8ec07c
-URxvt.colorBD:              [92]#d5c4a1
-URxvt.colorUL:              [92]#83a598
-URxvt.scrollColor:          [92]#504945
+! PaperColor Theme
+URxvt.foreground: #000000
+URxvt.background: #E7E8EB
+! black
+URxvt.color0: #EDEDED
+URxvt.color8: #969694
+! red
+URxvt.color1: #D7005F
+URxvt.color9: #D7005F
+! green
+URxvt.color2: #718C00
+URxvt.color10: #718C00
+! yellow / orange
+URxvt.color3: #D75F00
+URxvt.color11: #D75F00
+! blue
+URxvt.color4: #4271AE
+URxvt.color12: #4271AE
+! magenta
+URxvt.color5: #8959A8
+URxvt.color13: #8959A8
+! cyan
+URxvt.color6: #3E999F
+URxvt.color14: #3E999F
+! white
+URxvt.color7: #F5F5F5
+URxvt.color15: #2D2D2C

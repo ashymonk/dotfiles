@@ -2,7 +2,7 @@
 " vim
 autocmd FileType vim setlocal foldmethod=marker
 
-" 行末ブランクをハイライトする
+" highlight traiing spaces
 augroup HighlightTrailingSpaces
 	autocmd!
 	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guifg=#C6C6C6 guibg=#EEEEEE ctermfg=251 ctermbg=255
