@@ -12,6 +12,7 @@ let g:netrw_home = $VIM_CACHE_HOME
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 let g:netrw_browse_split = 0
+let g:netrw_altv = 1
 
 " gtags
 let g:Gtags_Close_When_Single = 1

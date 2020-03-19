@@ -20,6 +20,10 @@ nmap <C-T> <C-T>zz
 nmap <C-O> <C-O>zz
 nmap <C-I> <C-I>zz
 
+" jump function head
+nmap [[ [[zz
+nmap ]] ]]zz
+
 " search
 nmap n nzz
 nmap N Nzz
@@ -76,8 +80,7 @@ noremap \explore\V :Vexplore .<CR>
 
 " vimrc
 noremap \vimrc\r :source $MYVIMRC<CR>
-noremap \vimrc\e :edit $MYVIMRC<CR>
-noremap \vimrc\E :Explore $VIM_CONFIG_HOME/init<CR>
+noremap \vimrc\e :Explore $VIM_CONFIG_HOME/init<CR>
 noremap \vimrc\p :Explore $VIM_DATA_HOME/plugged<CR>
 
 

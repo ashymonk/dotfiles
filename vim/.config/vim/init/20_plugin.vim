@@ -9,7 +9,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
-Plug 'yasukotelin/shirotelin'
+Plug 'arzg/vim-colors-xcode'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
@@ -48,15 +48,23 @@ let g:quickhl_manual_colors = [
 	\ ]
 " }}}
 
-"shirotelin" {{{
+"vim-colors-xcode" {{{
 
-if !empty( glob(s:vim_plug_dir . '/shirotelin') )
-	augroup Shirotelin
+if !empty( glob(s:vim_plug_dir . '/vim-colors-xcode') )
+
+	augroup VimColorsXcode
 		autocmd!
 		autocmd ColorScheme * highlight Comment ctermfg=34 guifg=#00AF00
+		autocmd ColorScheme * highlight BufTabLineCurrent ctermbg=White guibg=White
+		autocmd ColorScheme * highlight BufTabLineActive ctermbg=LightGray guibg=LightGray
+		autocmd ColorScheme * highlight BufTabLineHidden ctermbg=DarkGray guibg=DarkGray
+		autocmd ColorScheme * highlight BufTabLineFill ctermbg=Black guibg=Black
 	augroup END
 
-	colorscheme shirotelin
+	let g:xcodelighthc_emph_funcs = 1
+	let g:xcodelighthc_emph_idents = 1
+
+	colorscheme xcodelighthc
 endif
 
 " }}}
