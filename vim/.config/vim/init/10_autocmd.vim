@@ -5,7 +5,7 @@ autocmd FileType vim setlocal foldmethod=marker
 " highlight traiing spaces
 augroup HighlightTrailingSpaces
 	autocmd!
-	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guifg=#C6C6C6 guibg=#EEEEEE ctermfg=251 ctermbg=255
+	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guifg=#444444 guibg=#303030 ctermfg=238 ctermbg=236
 	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 

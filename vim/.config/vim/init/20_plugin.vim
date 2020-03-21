@@ -9,7 +9,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
-Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
@@ -27,44 +27,41 @@ let g:buftabline_separators = 0
 
 "vim-quickhl" {{{
 let g:quickhl_manual_colors = [
-	\ "ctermbg=195 guibg=#D7FFFF",
-	\ "ctermbg=225 guibg=#FFD7FF",
-	\ "ctermbg=230 guibg=#FFFFD7",
-	\ "ctermbg=189 guibg=#D7D7FF",
-	\ "ctermbg=194 guibg=#D7FFD7",
-	\ "ctermbg=224 guibg=#FFD7D7",
-	\ "ctermbg=183 guibg=#D7AFFF",
-	\ "ctermbg=193 guibg=#D7FFAF",
-	\ "ctermbg=153 guibg=#AFD7FF",
-	\ "ctermbg=223 guibg=#FFD7AF",
-	\ "ctermbg=158 guibg=#AFFFD7",
-	\ "ctermbg=218 guibg=#FFAFD7",
-	\ "ctermbg=159 guibg=#AFFFFF",
-	\ "ctermbg=219 guibg=#FFAFFF",
-	\ "ctermbg=229 guibg=#FFFFAF",
-	\ "ctermbg=147 guibg=#AFAFFF",
-	\ "ctermbg=157 guibg=#AFFFAF",
-	\ "ctermbg=217 guibg=#FFAFAF",
+	\ "ctermbg=89 guibg=#87005f",
+	\ "ctermbg=29 guibg=#00875f",
+	\ "ctermbg=94 guibg=#875f00",
+	\ "ctermbg=24 guibg=#005f87",
+	\ "ctermbg=64 guibg=#5f8700",
+	\ "ctermbg=54 guibg=#5f0087",
+	\ "ctermbg=18 guibg=#000087",
+	\ "ctermbg=28 guibg=#008700",
+	\ "ctermbg=88 guibg=#870000",
+	\ "ctermbg=23 guibg=#005f5f",
+	\ "ctermbg=53 guibg=#5f005f",
+	\ "ctermbg=58 guibg=#5f5f00",
+	\ "ctermbg=17 guibg=#00005f",
+	\ "ctermbg=22 guibg=#005f00",
+	\ "ctermbg=52 guibg=#5f0000",
 	\ ]
 " }}}
 
-"vim-colors-xcode" {{{
+"gruvbox" {{{
 
-if !empty( glob(s:vim_plug_dir . '/vim-colors-xcode') )
+if !empty( glob(s:vim_plug_dir . '/gruvbox') )
 
-	augroup VimColorsXcode
-		autocmd!
-		autocmd ColorScheme * highlight Comment ctermfg=34 guifg=#00AF00
-		autocmd ColorScheme * highlight BufTabLineCurrent ctermbg=White guibg=White
-		autocmd ColorScheme * highlight BufTabLineActive ctermbg=LightGray guibg=LightGray
-		autocmd ColorScheme * highlight BufTabLineHidden ctermbg=DarkGray guibg=DarkGray
-		autocmd ColorScheme * highlight BufTabLineFill ctermbg=Black guibg=Black
-	augroup END
+	nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+	nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+	nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 
-	let g:xcodelighthc_emph_funcs = 1
-	let g:xcodelighthc_emph_idents = 1
+	nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+	nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+	nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
-	colorscheme xcodelighthc
+	let g:gruvbox_italic = 0
+	let g:gruvbox_contrast_dark = 'medium'
+
+	set background=dark
+	colorscheme gruvbox
 endif
 
 " }}}
