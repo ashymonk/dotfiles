@@ -9,6 +9,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
+Plug 'junegunn/vim-easy-align'
+Plug 'kshenoy/vim-signature'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
@@ -45,6 +47,18 @@ let g:quickhl_manual_colors = [
 	\ ]
 " }}}
 
+"vim-easy-align" {{{
+
+if !empty( glob(s:vim_plug_dir . '/vim-easy-align') )
+	" Start interactive EasyAlign in visual mode (e.g. vipga)
+	xmap ga <Plug>(EasyAlign)
+
+	" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+	nmap ga <Plug>(EasyAlign)
+endif
+
+"}}}
+
 "gruvbox" {{{
 
 if !empty( glob(s:vim_plug_dir . '/gruvbox') )
@@ -58,7 +72,7 @@ if !empty( glob(s:vim_plug_dir . '/gruvbox') )
 	nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 	let g:gruvbox_italic = 0
-	let g:gruvbox_contrast_dark = 'medium'
+	let g:gruvbox_contrast_dark = 'hard'
 
 	set background=dark
 	colorscheme gruvbox

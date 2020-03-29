@@ -2,9 +2,6 @@
 " ***************************
 " * standard command keymap *
 " ***************************
-" select all
-nnoremap <C-A> ggVG
-
 " yank
 vnoremap <C-C> y
 
