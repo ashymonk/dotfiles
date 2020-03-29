@@ -58,9 +58,12 @@ URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
 !! Font list and Spacing
-URxvt.font:                 xft:Ricty Diminished-10
+URxvt.font:                 xft:Ricty Diminished-10.5
 URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
+
+!! perl extension
+URxvt.perl-ext-common: default
 
 !! colorscheme
 ! -----------------------------------------------------------------------------
