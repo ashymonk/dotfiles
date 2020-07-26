@@ -1,0 +1,3 @@
+for bcfile in "$XDG_DATA_HOME"/bash/completions/* ; do
+  [ -f "$bcfile" ] && . $bcfile
+done
