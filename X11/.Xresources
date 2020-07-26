@@ -73,6 +73,8 @@ URxvt.perl-ext-common: default
 ! Source: https://github.com/morhetz/gruvbox-generalized
 ! Last Modified: 13 Dec 2013
 ! -----------------------------------------------------------------------------
+URxvt.depth: 32
+URxvt.background: [95]#282828
 URxvt.color24:  #076678
 URxvt.color66:  #427b58
 URxvt.color88:  #9d0006
