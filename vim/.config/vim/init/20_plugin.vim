@@ -73,6 +73,7 @@ if !empty( glob(s:vim_plug_dir . '/gruvbox') )
 
 	let g:gruvbox_italic = 0
 	let g:gruvbox_contrast_dark = 'hard'
+	let g:gruvbox_bold = 0
 
 	set background=dark
 	colorscheme gruvbox
