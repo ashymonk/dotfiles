@@ -31,6 +31,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot 2>/dev/null)/lib/rustlib/src/rust/
 export CTAGS="--options=$XDG_CONFIG_HOME/ctags/ctags.conf"
 export GTAGSCONF="$XDG_CONFIG_HOME/gtags/gtags.conf"
 export SDIRS="$XDG_DATA_HOME/bash/sdirs"
+export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
 
 # PATH / MANPATH / INFOPATH
 export PATH="$HOME/bin:$PATH"
