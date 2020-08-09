@@ -94,8 +94,11 @@ set tags=./tags;
 " indent
 set cindent
 
-" indent width
-set shiftwidth=4
+" tabspace
+set expandtab
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
 
 " }}}
 
@@ -136,9 +139,6 @@ set hlsearch
 
 " カーソルがある行のライン非表示
 set nocursorline
-
-" タブ幅 4 文字
-set tabstop=4
 
 " 不可視文字を表示
 set list
