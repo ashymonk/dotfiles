@@ -146,4 +146,5 @@ cdls ()
 
 # plugin
 [[ -f ~/.local/bin/bashmarks.sh ]] && source ~/.local/bin/bashmarks.sh
+[[ -f ~/.local/bin/autojump.bash ]] && source ~/.local/bin/autojump.bash
 
