@@ -63,7 +63,7 @@ URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
 
 !! perl extension
-URxvt.perl-ext-common: default
+URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste
 
 !! colorscheme
 ! -----------------------------------------------------------------------------
