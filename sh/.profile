@@ -56,6 +56,14 @@ export SDIRS="$XDG_DATA_HOME/bash/sdirs"
 ## X11 application environment
 ##
 
+# IM
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# i3
+export TERMINAL="run_urxvtc"
+
 # rxvt-unicode
 export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 export URXVT_PERL_LIB="$XDG_CONFIG_HOME/urxvt/ext"
