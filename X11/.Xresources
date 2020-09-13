@@ -28,5 +28,8 @@ URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
 
 !! perl extension
-URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste
+URxvt.perl-ext-common: default,-searchable-scrollback,selection-to-clipboard,confirm-paste,keyboard-select
 
+!! keybind
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
