@@ -7,6 +7,8 @@ cd $(dirname $0)
 mkdir -p $XDG_CONFIG_HOME
 mkdir -p $XDG_DATA_HOME
 mkdir -p $XDG_CACHE_HOME
+mkdir -p $TARGET_HOME/bin
+mkdir -p $TARGET_HOME/.local/bin
 
 for package in $(ls -d */ | cut -d'/' -f1)
 do
