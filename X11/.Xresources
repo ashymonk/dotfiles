@@ -21,10 +21,13 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
+URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
+URxvt.transparent: true
+URxvt.shading: 20
 
 !! Font list and Spacing
 URxvt.font:                 xft:Ricty Diminished-10.5
-URxvt.letterSpace:          -1
+URxvt.letterSpace:          0
 URxvt.lineSpace:            0
 
 !! perl extension
