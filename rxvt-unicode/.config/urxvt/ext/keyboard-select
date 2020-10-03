@@ -156,6 +156,7 @@ sub key_press {
 				$self->{select} = '';
 				status_area($self);
 				$self->want_refresh();
+				$quit = 1;
 			} else {
 				$quit = 1;
 			}
