@@ -25,14 +25,19 @@ URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
 URxvt.transparent: true
 URxvt.shading: 20
 
+!! scroll back
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
 !! Font list and Spacing
-URxvt.font:                 xft:Ricty Diminished-10.5
-URxvt.letterSpace:          0
-URxvt.lineSpace:            0
+URxvt.font: xft:Ricty Diminished:size=10:antialias=true
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
 
 !! perl extension
 URxvt.perl-ext-common: default,-searchable-scrollback,selection-to-clipboard,confirm-paste,keyboard-select
 
 !! keybind
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-e: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
