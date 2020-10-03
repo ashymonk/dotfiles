@@ -29,6 +29,8 @@ URxvt.shading: 20
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 1
 
 !! Font list and Spacing
 URxvt.font: xft:Ricty Diminished:size=10:antialias=true
@@ -36,8 +38,9 @@ URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 
 !! perl extension
-URxvt.perl-ext-common: default,-searchable-scrollback,selection-to-clipboard,confirm-paste,keyboard-select
+URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select
 
 !! keybind
-URxvt.keysym.M-e: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.searchable-scrollback:
+URxvt.keysym.M-s: perl:keyboard-select:activate
+URxvt.keysym.M-S: perl:keyboard-select:search
