@@ -181,6 +181,19 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        colors {
+                separator #7d7d7d
+                background #141414
+                statusline #00b0ef
+                focused_workspace #00b0ef #141414 #00b0ef #ffffff
+                active_workspace #141414 #141414 #00b0ef #888888
+                inactive_workspace #141414 #141414 #7d7d7d #888888
+                urgent_workspace #ff7066 #141414 #ff7066 #ffffff
+        }
 }
 
 exec --no-startup-id "feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg"
+client.focused #00b0ef #00b0ef #141414 #ff7066
+client.focused_inactive #141414 #141414 #00b0ef #472b2a
+client.unfocused #141414 #141414 #7d7d7d #141414
+client.urgent #ff7066 #ff7066 #141414 #ff7066
