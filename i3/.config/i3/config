@@ -190,7 +190,6 @@ bar {
         }
 }
 
-exec --no-startup-id "feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg"
 client.focused #00b0ef #00b0ef #141414 #ff7066
 client.focused_inactive #141414 #141414 #00b0ef #472b2a
 client.unfocused #141414 #141414 #7d7d7d #141414
@@ -212,3 +211,9 @@ mode "$mode_system" {
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e mode "$mode_system"
+
+# Run desktop entries
+exec dex -a
+
+# Set background
+exec --no-startup-id "feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg"
