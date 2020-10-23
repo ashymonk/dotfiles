@@ -39,6 +39,9 @@ export GTAGSCONF="$XDG_CONFIG_HOME/gtags/gtags.conf"
 # bashmarks
 export SDIRS="$XDG_DATA_HOME/bash/sdirs"
 
+# readline
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+
 # IM
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
