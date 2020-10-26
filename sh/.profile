@@ -58,8 +58,8 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME/urxvt/ext"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
-export MANPATH="$HOME/.local/share/man:$MANPATH"
-export INFOPATH="$HOME/.local/share/info:$INFOPATH"
+export MANPATH="$XDG_DATA_HOME/man:$MANPATH"
+export INFOPATH="$XDG_DATA_HOME/info:$INFOPATH"
 
 # include user local profile
 [ -f ~/.profile.local ] && . ~/.profile.local
