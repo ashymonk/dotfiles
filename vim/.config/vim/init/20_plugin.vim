@@ -11,6 +11,7 @@ Plug 'ap/vim-buftabline'
 Plug 't9md/vim-quickhl'
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
+Plug 'qpkorr/vim-bufkill'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
@@ -55,6 +56,17 @@ if !empty( glob(s:vim_plug_dir . '/vim-easy-align') )
 
 	" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
+endif
+
+"}}}
+
+"vim-bufkill" {{{
+
+if !empty( glob(s:vim_plug_dir . '/vim-bufkill') )
+        noremap \buffer\d :BD<CR>
+        noremap \buffer\D :BD!<CR>
+        noremap \buffer\w :BW<CR>
+        noremap \buffer\W :BW!<CR>
 endif
 
 "}}}
