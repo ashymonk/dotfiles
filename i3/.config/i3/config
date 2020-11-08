@@ -213,7 +213,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 # Run desktop entries
-exec dex -a
+exec --no-startup-id dex -a
 
 # Set background
-exec --no-startup-id "feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg"
+exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg
