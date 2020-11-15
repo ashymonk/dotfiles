@@ -1,0 +1,39 @@
+#! /bin/sh
+
+hostname=$(echo $(basename "$0") | sed s/_ul//)
+remote_dest='$HOME/tmp'
+
+set -- "$@" --
+
+while [ $# -gt 0 ]
+do
+    case $1 in
+        --)
+            shift 1
+            break
+            ;;
+        -d)
+            remote_dest="$2"
+            shift 2
+            ;;
+        -r)
+            set -- "$@" -r
+            shift 1
+            ;;
+        -T)
+            set -- "$@" -T
+            shift 1
+            ;;
+        -o)
+            set -- "$@" -o "$2"
+            shift 2
+            ;;
+        *)
+            set -- "$@" "$1"
+            shift 1
+            ;;
+    esac
+done
+
+scp "$@" $hostname:"\"$remote_dest\""
+exit $?
