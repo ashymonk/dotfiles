@@ -31,7 +31,7 @@ let $MYVIMRC = $VIM_CONFIG_HOME . '/vimrc'
 
 if !exists("set_runtimepath")
 	set runtimepath&
-	set runtimepath^=$VIM_CONFIG_HOME
+	set runtimepath^=$VIM_CONFIG_HOME,$VIM_CONFIG_HOME/after
 	let set_runtimepath = 1
 endif
 
