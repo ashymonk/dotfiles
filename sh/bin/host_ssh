@@ -1,5 +1,0 @@
-#! /bin/sh
-
-hostname=$(echo $(basename "$0") | sed s/_ssh//)
-ssh $hostname "$@"
-exit $?

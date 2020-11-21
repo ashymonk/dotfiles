@@ -1,0 +1,140 @@
+#! /bin/sh
+
+hostname=$(basename "$0")
+
+# set passthrough options
+set -- "$@" ---
+passthrough_option=false
+
+for arg in "$@"
+do
+    case "$arg" in
+        ---)
+            break
+            ;;
+        --)
+            passthrough_option=true
+            ;;
+        *)
+            if [ $passthrough_option = true ]; then
+                set -- "$@" "$arg"
+            fi
+            ;;
+    esac
+done
+
+cmd_ssh() {
+    passthrough_option=false
+
+    set -- "$@" $hostname
+
+    while [ $# -gt 0 ]
+    do
+        case "$1" in
+            ---)
+                shift
+                break
+                ;;
+            --)
+                passthrough_option=true
+                shift
+                ;;
+            *)
+                if [ $passthrough_option = false ]; then
+                    set -- "$@" "$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    ssh "$@"
+    exit $?
+}
+
+cmd_dl() {
+    passthrough_option=false
+    local_dest=.
+
+    while [ $# -gt 0 ]
+    do
+        case $1 in
+            ---)
+                shift
+                break
+                ;;
+            --)
+                passthrough_option=true
+                shift
+                ;;
+            -d)
+                local_dest="$2"
+                shift 2
+                ;;
+            *)
+                if [ $passthrough_option = false ]; then
+                    set -- "$@" $hostname:"$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    scp "$@" "$local_dest"
+    exit $?
+}
+
+cmd_ul() {
+    passthrough_option=false
+    remote_dest='$HOME/tmp'
+
+    while [ $# -gt 0 ]
+    do
+        case $1 in
+            ---)
+                shift
+                break
+                ;;
+            --)
+                passthrough_option=true
+                shift
+                ;;
+            -d)
+                remote_dest="$2"
+                shift 2
+                ;;
+            *)
+                if [ $passthrough_option = false ]; then
+                    set -- "$@" "$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    scp "$@" $hostname:"$remote_dest"
+    exit $?
+}
+
+usage() {
+    echo "usage: $hostname [ssh|dl|ul]" >&2
+    exit 1
+}
+
+case "$1" in
+    ssh)
+        shift
+        cmd_ssh "$@"
+        ;;
+    dl)
+        shift
+        cmd_dl "$@"
+        ;;
+    ul)
+        shift
+        cmd_ul "$@"
+        ;;
+    *)
+        usage
+        ;;
+esac
