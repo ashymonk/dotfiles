@@ -117,20 +117,20 @@ cmd_ul() {
 }
 
 usage() {
-    echo "usage: $hostname [ssh|dl|ul]" >&2
+    echo "usage: $hostname [ssh|s|dl|d|ul|u]" >&2
     exit 1
 }
 
 case "$1" in
-    ssh)
+    ssh|s)
         shift
         cmd_ssh "$@"
         ;;
-    dl)
+    dl|d)
         shift
         cmd_dl "$@"
         ;;
-    ul)
+    ul|u)
         shift
         cmd_ul "$@"
         ;;
