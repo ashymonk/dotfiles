@@ -23,7 +23,7 @@ URxvt.visualBell:           false
 URxvt.saveLines:            3000
 URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
 URxvt.transparent: true
-URxvt.shading: 20
+URxvt.shading: 15
 
 !! scroll back
 URxvt.scrollTtyOutput: false
@@ -33,7 +33,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 1
 
 !! Font list and Spacing
-URxvt.font: xft:Inconsolata:size=10:antialias=true,xft:DejaVu Sans Mono:size=10:antialias=true
+URxvt.font: xft:Inconsolata:size=10:antialias=true,xft:DejaVu Sans Mono:size=10:antialias=true,xft:IPAGothic:size=9:antialias=true
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 
