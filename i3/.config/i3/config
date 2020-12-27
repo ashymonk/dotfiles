@@ -216,4 +216,4 @@ bindsym $mod+Shift+e mode "$mode_system"
 exec --no-startup-id dex -a
 
 # Set background
-exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/ubuntu.jpg
+exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/brad-huchteman-stone-mountain.jpg
