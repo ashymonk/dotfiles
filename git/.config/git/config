@@ -3,6 +3,9 @@
 	editor = vim -c \"set fenc=utf-8\"
 	pager = LESSCHARSET=utf-8 less -x4
 
+[credential]
+	helper = cache
+
 [alias]
 	alias = config --get-regexp alias.*
 	st = status
