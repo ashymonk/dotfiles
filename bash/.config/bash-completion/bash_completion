@@ -1,3 +1,5 @@
-for bcfile in "$XDG_DATA_HOME"/bash-completion/* ; do
-  [ -f "$bcfile" ] && . $bcfile
+echo "Sourcing bash completion user file..."
+
+for bcfile in "$XDG_DATA_HOME"/bash-completion/completions/* ; do
+    [ -f "$bcfile" ] && . $bcfile
 done
