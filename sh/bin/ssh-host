@@ -86,7 +86,11 @@ cmd_dl() {
 
 cmd_ul() {
     passthrough_option=false
-    remote_dest='$HOME/tmp'
+    if [ -z $SSH_HOST_UPLOAD_DEST ]; then
+        remote_dest='$HOME/tmp'
+    else
+        remote_dest="$SSH_HOST_UPLOAD_DEST"
+    fi
 
     while [ $# -gt 0 ]
     do
