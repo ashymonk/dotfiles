@@ -38,9 +38,6 @@ export CTAGS="--options=$XDG_CONFIG_HOME/ctags/ctags.conf"
 # gtags
 export GTAGSCONF="$XDG_CONFIG_HOME/gtags/gtags.conf"
 
-# bash-completion (version < 2.11)
-export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME/bash-completion/bash_completion"
-
 # bashmarks
 export SDIRS="$XDG_DATA_HOME/bash/sdirs"
 
