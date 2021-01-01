@@ -22,6 +22,7 @@ URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
 URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
+URxvt.inheritPixmap: true
 URxvt.transparent: true
 URxvt.shading: 15
 
@@ -30,7 +31,7 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 1
+URxvt.secondaryScroll: 0
 
 !! Font list and Spacing
 URxvt.font: xft:Inconsolata:size=10:antialias=true,xft:DejaVu Sans Mono:size=10:antialias=true,xft:IPAGothic:size=9:antialias=true
