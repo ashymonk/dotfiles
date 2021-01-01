@@ -1,6 +1,14 @@
-#!/bin/sh
+#! /bin/sh
+
 lock() {
-    i3lock
+    image=/tmp/i3lock.bmp
+    lockimage=/tmp/i3lock.png
+
+    import -window root $image
+    convert $image -blur 10x10 $image
+    convert $image -quality 11 $lockimage
+    i3lock -i $lockimage
+    rm $image $lockimage
 }
 
 case "$1" in
