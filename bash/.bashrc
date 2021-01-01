@@ -10,6 +10,6 @@ esac
 
 echo "Loading bashrc.d files..."
 
-for rcfile in $XDG_CONFIG_HOME/bash/bashrc.d/*.bash; do
+for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
     [ -f "$rcfile" ] && source "$rcfile"
 done
