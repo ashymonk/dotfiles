@@ -109,7 +109,7 @@ syntax on
 
 " color
 set background=dark
-colorscheme koehler
+colorscheme elflord
 
 " font
 if has('gui_running')

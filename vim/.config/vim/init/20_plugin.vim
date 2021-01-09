@@ -75,20 +75,22 @@ endif
 
 if !empty( glob(s:vim_plug_dir . '/gruvbox') )
 
-	nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-	nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-	nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+	if &termguicolors || has('gui_running') || &t_Co == 256
+		nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+		nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+		nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 
-	nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-	nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-	nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+		nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+		nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+		nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
-	let g:gruvbox_italic = 0
-	let g:gruvbox_contrast_dark = 'hard'
-	let g:gruvbox_bold = 0
+		let g:gruvbox_italic = 0
+		let g:gruvbox_contrast_dark = 'hard'
+		let g:gruvbox_bold = 0
 
-	set background=dark
-	colorscheme gruvbox
+		set background=dark
+		colorscheme gruvbox
+	endif
 endif
 
 " }}}
