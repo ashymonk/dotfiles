@@ -1,12 +1,7 @@
 # sourced by ~/.bashrc
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if [ "$color_prompt" = yes ]; then
 	alias ls='ls --color=auto'
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
@@ -18,10 +13,12 @@ if [ -x /usr/bin/dircolors ]; then
 	alias dmesg='dmesg --color=auto'
 fi
 
-# some more ls aliases
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 alias ll='ls -alF'
 alias la='ls -A'
-
 alias cd='cdls'
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias words='tr -cs "A-Za-z" "\n"'
@@ -30,5 +27,5 @@ alias findd='find -type d'
 alias findn='find -name'
 alias findfn='find -type f -name'
 alias finddn='find -type d -name'
-alias rmescseq-csi-sgr="sed -r 's/\x1b\[[0-9;]*m//g'"
-alias rmescseq-osc="sed -r 's/\x1b\].*(\x07|\x1b\\\\)//g'"
+alias rm-escseq-csi-sgr="sed -r 's/\x1b\[[0-9;]*m//g'"
+alias rm-escseq-osc="sed -r 's/\x1b\].*(\x07|\x1b\\\\)//g'"

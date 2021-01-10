@@ -3,9 +3,13 @@
 echo "Sourcing ~/.bashrc..."
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
+[[ $- != *i* ]] && return
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    linux|xterm*|rxvt*|screen*|*-color)
+        color_prompt=yes
+        ;;
 esac
 
 echo "Loading bashrc.d files..."
@@ -13,3 +17,5 @@ echo "Loading bashrc.d files..."
 for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
     [ -f "$rcfile" ] && source "$rcfile"
 done
+
+unset color_prompt
