@@ -1,9 +1,8 @@
 # sourced by ~/.bashrc
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-[[ -f /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh
+# enable programmable completion features
+[[ -f /usr/share/bash-completion/bash_completion && -z ${BASH_COMPLETION_VERSINFO} ]] && \
+    source /usr/share/bash-completion/bash_completion
 
 # plugin
 [[ -f ~/.local/bin/bashmarks.sh ]] && source ~/.local/bin/bashmarks.sh
