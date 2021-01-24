@@ -1,7 +1,7 @@
 # sourced by ~/.bashrc
 
 # enable color support of ls and also add handy aliases
-if [ "$color_prompt" = yes ]; then
+if [ "$__color_prompt" = yes ]; then
 	alias ls='ls --color=auto'
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'

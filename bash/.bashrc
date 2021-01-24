@@ -8,7 +8,7 @@ echo "Sourcing ~/.bashrc..."
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     linux|xterm*|rxvt*|screen*|*-color)
-        color_prompt=yes
+        __color_prompt=yes
         ;;
 esac
 
@@ -17,5 +17,3 @@ echo "Loading bashrc.d files..."
 for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
     [ -f "$rcfile" ] && source "$rcfile"
 done
-
-unset color_prompt

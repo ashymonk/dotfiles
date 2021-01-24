@@ -1,7 +1,7 @@
 # sourced by ~/.bashrc
 
 # enable programmable completion features
-[[ -f /usr/share/bash-completion/bash_completion && -z ${BASH_COMPLETION_VERSINFO} ]] && \
+[[ -f /usr/share/bash-completion/bash_completion ]] && \
     source /usr/share/bash-completion/bash_completion
 
 # plugin
