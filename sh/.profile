@@ -37,6 +37,7 @@ export CTAGS="--options=$XDG_CONFIG_HOME/ctags/ctags.conf"
 
 # gtags
 export GTAGSCONF="$XDG_CONFIG_HOME/gtags/gtags.conf"
+export GTAGSLABEL=pygments
 
 # bashmarks
 export SDIRS="$XDG_DATA_HOME/bash/sdirs"
