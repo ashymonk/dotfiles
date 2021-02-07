@@ -1,6 +1,6 @@
 #! /bin/sh
 
-hostname=$(basename "$0")
+hostname=$1
 
 # set passthrough options
 set -- "$@" ---
@@ -121,21 +121,21 @@ cmd_ul() {
 }
 
 usage() {
-    echo "usage: $hostname [ssh|s|dl|d|ul|u]" >&2
+    echo "usage: ssh-host hostname [ssh|s|dl|d|ul|u]" >&2
     exit 1
 }
 
-case "$1" in
+case "$2" in
     ssh|s)
-        shift
+        shift 2
         cmd_ssh "$@"
         ;;
     dl|d)
-        shift
+        shift 2
         cmd_dl "$@"
         ;;
     ul|u)
-        shift
+        shift 2
         cmd_ul "$@"
         ;;
     *)
