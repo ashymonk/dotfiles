@@ -63,7 +63,7 @@ endif
 
 if !empty( glob(s:vim_plug_dir . '/gruvbox') )
 
-	if &termguicolors || has('gui_running') || &t_Co == 256
+	if (has('termguicolors') && &termguicolors) || has('gui_running') || &t_Co == 256
 		nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
 		nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
 		nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
