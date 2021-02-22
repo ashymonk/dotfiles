@@ -1,6 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-echo "Sourcing ~/.bashrc..."
+echo "Sourcing ~/.bashrc..." >&2
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -12,7 +12,7 @@ case "$TERM" in
         ;;
 esac
 
-echo "Loading bashrc.d files..."
+echo "Loading bashrc.d files..." >&2
 
 for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
     [ -f "$rcfile" ] && source "$rcfile"
