@@ -16,7 +16,7 @@ augroup END
 
 "##### auto fcitx  ###########
 if executable("fcitx-remote")
-    let g:input_toggle = 1
+    let g:input_toggle = 0
     function! Fcitx2en()
         let s:input_status = system("fcitx-remote")
         if s:input_status == 2
