@@ -1,6 +1,6 @@
 # ~/.profile
 
-echo "Sourcing ~/.profile..." >&2
+echo "Sourcing ~/.profile..."
 
 # umask
 if [ "`id -ur`" -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
