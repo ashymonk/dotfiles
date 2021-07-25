@@ -6,8 +6,8 @@
 vnoremap <C-C> y
 
 " buffer
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+nnoremap <C-J> :bnext<CR>
+nnoremap <C-K> :bprev<CR>
 
 " jump by tagstack
 nmap <C-]> <C-]>zz
