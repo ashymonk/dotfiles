@@ -1,11 +1,10 @@
-
-" ***************************
-" * standard command keymap *
-" ***************************
+" ****************************
+" * keymaps with control key *
+" ****************************
 " yank
 vnoremap <C-C> y
 
-" buffer
+" switch buffer
 nnoremap <C-J> :bnext<CR>
 nnoremap <C-K> :bprev<CR>
 
@@ -31,13 +30,19 @@ noremap <F5> :!gtags -i<CR>
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
-let mapleader = ","
+
+" ***********************
+" * keymaps with leader *
+" ***********************
+let mapleader = "\<Space>"
 nmap <Leader>w \write\
 nmap <Leader>g \grep\
 nmap <Leader>q \quickfix\
 nmap <Leader>b \buffer\
 nmap <Leader>e \explore\
 nmap <Leader>v \vimrc\
+vmap <Leader>h \quickhl\
+nmap <Leader>j \gtags\
 
 " write
 noremap \write\w :write<CR>
@@ -59,13 +64,23 @@ noremap \quickfix\n :cnext<CR>
 noremap \quickfix\p :cprevious<CR>
 noremap \quickfix\N :cNext<CR>
 
-" buffer
+" buffer (vim-buftabline)
 noremap \buffer\d :bdelete<CR>
 noremap \buffer\D :bdelete!<CR>
 noremap \buffer\w :bwipeout<CR>
 noremap \buffer\W :bwipeout!<CR>
 noremap \buffer\l :ls<CR>
 noremap \buffer\n :enew<CR>
+nmap \buffer\1 <Plug>BufTabLine.Go(1)
+nmap \buffer\2 <Plug>BufTabLine.Go(2)
+nmap \buffer\3 <Plug>BufTabLine.Go(3)
+nmap \buffer\4 <Plug>BufTabLine.Go(4)
+nmap \buffer\5 <Plug>BufTabLine.Go(5)
+nmap \buffer\6 <Plug>BufTabLine.Go(6)
+nmap \buffer\7 <Plug>BufTabLine.Go(7)
+nmap \buffer\8 <Plug>BufTabLine.Go(8)
+nmap \buffer\9 <Plug>BufTabLine.Go(9)
+nmap \buffer\0 <Plug>BufTabLine.Go(10)
 
 " explore
 noremap \explore\e :Explore<CR>
@@ -80,17 +95,6 @@ noremap \vimrc\r :source $MYVIMRC<CR>
 noremap \vimrc\e :Explore $VIM_CONFIG_HOME/init<CR>
 noremap \vimrc\p :Explore $VIM_DATA_HOME/plugged<CR>
 
-
-" *************************
-" * plugin command keymap *
-" *************************
-
-let mapleader = "\<Space>"
-nmap <Leader>h \quickhl\
-vmap <Leader>h \quickhl\
-nmap <Leader>b \buftab\
-nmap <Leader>j \gtags\
-
 " vim-quickhl
 nmap \quickhl\m <Plug>(quickhl-manual-this)
 xmap \quickhl\m <Plug>(quickhl-manual-this)
@@ -102,18 +106,6 @@ nmap \quickhl\M <Plug>(quickhl-manual-reset)
 xmap \quickhl\M <Plug>(quickhl-manual-reset)
 nmap \quickhl\j <Plug>(quickhl-cword-toggle)
 nmap \quickhl\] <Plug>(quickhl-tag-toggle)
-
-" vim-buftabline
-nmap \buftab\1 <Plug>BufTabLine.Go(1)
-nmap \buftab\2 <Plug>BufTabLine.Go(2)
-nmap \buftab\3 <Plug>BufTabLine.Go(3)
-nmap \buftab\4 <Plug>BufTabLine.Go(4)
-nmap \buftab\5 <Plug>BufTabLine.Go(5)
-nmap \buftab\6 <Plug>BufTabLine.Go(6)
-nmap \buftab\7 <Plug>BufTabLine.Go(7)
-nmap \buftab\8 <Plug>BufTabLine.Go(8)
-nmap \buftab\9 <Plug>BufTabLine.Go(9)
-nmap \buftab\0 <Plug>BufTabLine.Go(10)
 
 " gtags
 nmap \gtags\t :Gtags <C-r><C-w><CR>
@@ -129,4 +121,3 @@ nmap \gtags\F :Gtags -f<Space>
 nmap \gtags\p :Gtags -P <C-r><C-w><CR>
 nmap \gtags\P :Gtags -P<Space>
 nmap \gtags\j :GtagsCursor<CR>
-
