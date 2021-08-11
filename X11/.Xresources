@@ -39,9 +39,19 @@ URxvt.font: xft:Inconsolata:size=10:antialias=true,xft:Noto Sans Mono CJK JP:siz
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+
+URxvt.resize-font.step: 1
+
 !! perl extension
-URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select,-searchable-scrollback
+URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select,-searchable-scrollback,resize-font
 
 !! keybind
 URxvt.keysym.M-s: perl:keyboard-select:activate
 URxvt.keysym.M-S: perl:keyboard-select:search
+
+URxvt.keysym.C-minus:    resize-font:smaller
+URxvt.keysym.C-plus:     resize-font:bigger
+URxvt.keysym.C-equal:    resize-font:reset
+URxvt.keysym.C-question: resize-font:show
