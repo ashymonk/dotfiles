@@ -30,6 +30,9 @@ noremap <F5> :!gtags -i<CR>
 " ESC disable IME
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
+" Fzf files
+nmap <C-P> :Files<CR>
+
 
 " ***********************
 " * keymaps with leader *

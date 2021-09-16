@@ -16,6 +16,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'mechatroner/rainbow_csv'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -105,4 +107,3 @@ augroup Racer
 augroup END
 
 " }}}
-
