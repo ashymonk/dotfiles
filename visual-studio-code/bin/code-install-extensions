@@ -1,0 +1,8 @@
+#! /bin/sh
+set -u
+
+while read line
+do
+    code --install-extension $line
+done <$XDG_CONFIG_HOME/Code/User/extensions
+exit 0
