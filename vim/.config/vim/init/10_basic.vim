@@ -77,6 +77,9 @@ set statusline+=[LOW=%l/%L]
 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
 set laststatus=2
 
+" normalモードの入力文字を表示
+set showcmd
+
 " }}}
 
 "tabline {{{

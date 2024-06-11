@@ -44,6 +44,7 @@ nmap <Leader>q \quickfix\
 nmap <Leader>b \buffer\
 nmap <Leader>e \explore\
 nmap <Leader>v \vimrc\
+nmap <Leader>h \quickhl\
 vmap <Leader>h \quickhl\
 nmap <Leader>j \gtags\
 
