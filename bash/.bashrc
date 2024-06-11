@@ -1,6 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-echo "Sourcing ~/.bashrc..." >&2
+echo "Loading ~/.bashrc..." >&2
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

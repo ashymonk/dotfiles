@@ -1,0 +1,19 @@
+# ~/.xprofile
+
+echo "Loading ~/.xprofile..."
+
+# IM
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# i3
+if command -v urxvt 2>&1 >/dev/null; then
+    export TERMINAL="run_urxvtc"
+else
+    unset TERMINAL
+fi
+
+# rxvt-unicode
+export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
+export URXVT_PERL_LIB="$XDG_CONFIG_HOME/urxvt/ext"

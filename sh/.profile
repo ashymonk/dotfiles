@@ -1,6 +1,6 @@
 # ~/.profile
 
-echo "Sourcing ~/.profile..."
+echo "Loading ~/.profile..."
 
 # umask
 if [ "`id -ur`" -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
@@ -44,18 +44,6 @@ export SDIRS="$XDG_DATA_HOME/bash/sdirs"
 
 # readline
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-
-# IM
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-
-# i3
-export TERMINAL="run_urxvtc"
-
-# rxvt-unicode
-export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
-export URXVT_PERL_LIB="$XDG_CONFIG_HOME/urxvt/ext"
 
 # Path
 export PATH="$HOME/bin:$PATH"

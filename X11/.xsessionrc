@@ -1,0 +1,5 @@
+# ~/.xsessionrc
+
+echo "Loading ~/.xsessionrc..."
+
+. ~/.xsession
