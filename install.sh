@@ -23,9 +23,12 @@ do
 	[ -f $package/hook-post-install ] && (\cd $package && sh hook-post-install)
 done
 
-echo "**********************"
-echo "* installed dotfiles *"
-echo "**********************"
+echo " ___           _        _ _          _ "
+echo "|_ _|_ __  ___| |_ __ _| | | ___  __| |"
+echo " | || '_ \/ __| __/ _\` | | |/ _ \/ _\` |"
+echo " | || | | \__ \ || (_| | | |  __/ (_| |"
+echo "|___|_| |_|___/\__\__,_|_|_|\___|\__,_|"
+echo "                                       "
 
 bash -li
 
