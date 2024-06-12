@@ -1,8 +1,16 @@
 #! /bin/sh
 set -u
 
+tempfile=$(mktemp)
+trap "rm -f $tempfile" EXIT
+
+code --list-extensions >$tempfile
+
 while read line
 do
-    code --install-extension $line
+    if ! grep -xq "$line" "$tempfile"; then
+        code --install-extension $line
+    fi
 done <$XDG_CONFIG_HOME/Code/User/extensions
+
 exit 0

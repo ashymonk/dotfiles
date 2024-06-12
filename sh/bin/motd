@@ -1,0 +1,19 @@
+#! /bin/sh
+
+if [ -n "$DISPLAY" ]; then
+    if [ -n "$XDG_CURRENT_DESKTOP" ]; then
+        desktop="$XDG_CURRENT_DESKTOP"
+    else
+        desktop="unknown"
+    fi
+else
+    desktop="console"
+fi
+
+echo " * Login:   $USER@$(hostname)"
+echo " * Kernel:  $(uname -sr)"
+echo " * Distro:  $(uname -v)"
+echo " * Desktop: $desktop"
+echo " * Shell:   $SHELL"
+echo " * Time:    $(date '+%Y/%m/%d %a %H:%M:%S')"
+echo " * Uptime:  $(uptime -p | sed 's/up //')"
