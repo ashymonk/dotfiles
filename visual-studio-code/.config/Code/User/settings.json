@@ -1,4 +1,6 @@
 {
     "files.insertFinalNewline": true,
-    "editor.renderWhitespace": "all"
+    "editor.renderWhitespace": "all",
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>"
 }
