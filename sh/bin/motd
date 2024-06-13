@@ -1,18 +1,32 @@
 #! /bin/sh
 
+# Get distribution name.
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+elif [ -f /usr/lib/os-release ]; then
+    . /usr/lib/os-release
+fi
+if [ -n "$PRETTY_NAME" ]; then
+    distro="$PRETTY_NAME"
+else
+    distro=Unknown
+fi
+
+# Get window manager name.
 if [ -n "$DISPLAY" ]; then
     if [ -n "$XDG_CURRENT_DESKTOP" ]; then
         desktop="$XDG_CURRENT_DESKTOP"
     else
-        desktop="unknown"
+        desktop=Unknown
     fi
 else
-    desktop="console"
+    desktop=None
 fi
 
+# Print system information.
 echo " * Login:   $USER@$(hostname)"
-echo " * Kernel:  $(uname -sr)"
-echo " * Distro:  $(uname -v)"
+echo " * Kernel:  $(uname -srm)"
+echo " * Distro:  $distro"
 echo " * Desktop: $desktop"
 echo " * Shell:   $SHELL"
 echo " * Time:    $(date '+%Y/%m/%d %a %H:%M:%S')"
