@@ -2,6 +2,7 @@
 	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
 	pager = LESSCHARSET=utf-8 less -x4
+	autocrlf = input
 
 [credential]
 	helper = cache
@@ -64,6 +65,12 @@
 
 [diff "sjis"]
 	textconv = iconv -f sjis -t utf-8
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
 
 [ghq]
 	root = ~/src

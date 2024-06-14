@@ -24,10 +24,12 @@ else
 fi
 
 # Print system information.
-echo " * Login:   $USER@$(hostname)"
+echo " * Login:   $USER@$(uname -n)"
 echo " * Kernel:  $(uname -srm)"
 echo " * Distro:  $distro"
 echo " * Desktop: $desktop"
+echo " * Term:    $TERM"
+echo " * Console: $(tty)"
 echo " * Shell:   $SHELL"
-echo " * Time:    $(date '+%Y/%m/%d %a %H:%M:%S')"
 echo " * Uptime:  $(uptime -p | sed 's/up //')"
+echo " * Date:    $(date '+%Y/%m/%d %a %H:%M:%S')"
