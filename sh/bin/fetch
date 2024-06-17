@@ -23,6 +23,12 @@ else
     desktop=None
 fi
 
+# Get uptime
+uptime=Unknown
+if command -v uptime 2>&1 >/dev/null; then
+    uptime=$(uptime -p | sed 's/up //')
+fi
+
 # Print system information.
 echo " * Login:   $USER@$(uname -n)"
 echo " * Kernel:  $(uname -srm)"
@@ -31,5 +37,5 @@ echo " * Desktop: $desktop"
 echo " * Term:    $TERM"
 echo " * Console: $(tty)"
 echo " * Shell:   $SHELL"
-echo " * Uptime:  $(uptime -p | sed 's/up //')"
+echo " * Uptime:  $uptime"
 echo " * Date:    $(date '+%Y/%m/%d %a %H:%M:%S')"
