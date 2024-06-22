@@ -4,9 +4,9 @@
 function exit_status() {
     status=$?
     if [ $status -ne 0 ]; then
-        printf "(%3d)" $status
+        printf "[%3d]" $status
     else
-        echo "---->"
+        echo "[---]"
     fi
 }
 
