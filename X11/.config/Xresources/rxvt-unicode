@@ -1,0 +1,46 @@
+! vim: ai:si:et:ts=4:sw=4:ft=xdefaults:
+
+!! basic
+URxvt.geometry: 96x32
+URxvt.scrollBar_right: true
+URxvt.scrollBar_floating: true
+URxvt.scrollstyle: plain
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.pointerBlank: true
+URxvt.visualBell: false
+URxvt.saveLines: 3000
+URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
+URxvt.inheritPixmap: true
+URxvt.transparent: true
+URxvt.shading: 15
+URxvt.fading: 20
+URxvt.iconFile: HOME_DIR/.icons/urxvt_48x48.xpm
+
+!! scroll back
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+!! Font list and Spacing
+URxvt.font: xft:Inconsolata:size=10:antialias=true,\
+    xft:Noto Sans Mono CJK JP:size=10:antialias=true,\
+    xft:Source Han Sans JP Normal:size=10:antialias=true
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
+
+!! perl extension
+URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select,-searchable-scrollback,resize-font
+URxvt.resize-font.step: 1
+
+!! keybind
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus: resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
