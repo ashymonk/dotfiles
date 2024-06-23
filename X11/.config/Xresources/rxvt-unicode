@@ -25,10 +25,8 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 !! Font list and Spacing
-URxvt.font: xft:Inconsolata:size=10:antialias=true,\
-    xft:Noto Sans Mono CJK JP:size=10:antialias=true,\
-    xft:Source Han Sans JP Normal:size=10:antialias=true
-URxvt.letterSpace: -1
+URxvt.font: xft:Cica:size=11:type=Regular:antialias=true
+URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 
 !! perl extension

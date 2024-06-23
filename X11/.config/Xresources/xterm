@@ -1,9 +1,8 @@
 ! vim: ai:si:et:ts=4:sw=4:ft=xdefaults:
 
 xterm*termName: xterm-256color
-xterm*faceName: Inconsolata
-xterm*faceNameDoublesize: Noto Sans Mono CJK JP
-xterm*faceSize: 10
+xterm*faceName: xft:Cica
+xterm*faceSize: 11
 xterm*locale: true
 xTerm*selectToClipboard: true
 xTerm*saveLines: 2000
