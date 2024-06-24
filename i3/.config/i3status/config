@@ -84,7 +84,7 @@ memory {
 }
 
 battery all {
-        format = "%status %percentage (%emptytime)"
+        format = "%status %percentage %remaining %emptytime"
         format_down = ""
         status_chr = "󰂄"
         status_bat = "󰂌"
