@@ -2,6 +2,34 @@
 
 echo "Loading ~/.profile..."
 
+# Functions
+export_lang() {
+    if locale -a | grep -q "^$1$"; then
+        export LANG=$1
+        return 0
+    else
+        return 1
+    fi
+}
+add_path() {
+    case ":$PATH:" in
+      *":$1:"*) :;; # already there
+      *) export PATH="$1:$PATH";; # add path
+    esac
+}
+add_manpath() {
+    case ":$MANPATH:" in
+      *":$1:"*) :;; # already there
+      *) export MANPATH="$1:$MANPATH";; # add path
+    esac
+}
+add_infopath() {
+    case ":$INFOPATH:" in
+      *":$1:"*) :;; # already there
+      *) export INFOPATH="$1:$INFOPATH";; # add path
+    esac
+}
+
 # umask
 if [ "`id -ur`" -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
         umask 002
@@ -10,11 +38,15 @@ else
 fi
 
 # Language
-case $TERM in
-        linux) LANG=C ;;
-        *) LANG=en_US.UTF-8 ;;
-esac
-export LANG
+if [ "$TERM" = "linux" ]; then
+    export_lang "C.utf8" ||
+        export_lang "C"
+else
+    export_lang "ja_JP.utf8" ||
+        export_lang "en_US.utf8" ||
+        export_lang "C.utf8" ||
+        export_lang "C"
+fi
 
 # XDG base directory HOME
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -46,11 +78,11 @@ export SDIRS="$XDG_DATA_HOME/bash/sdirs"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # Path
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$CARGO_HOME/bin:$PATH"
-export MANPATH="$XDG_DATA_HOME/man:$MANPATH"
-export INFOPATH="$XDG_DATA_HOME/info:$INFOPATH"
+add_path "$HOME/bin"
+add_path "$HOME/.local/bin"
+add_path "$CARGO_HOME/bin"
+add_manpath "$XDG_DATA_HOME/man"
+add_infopath "$XDG_DATA_HOME/info"
 
 # include user local profile
 [ -f ~/.profile.local ] && . ~/.profile.local
