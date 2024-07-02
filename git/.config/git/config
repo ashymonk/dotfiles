@@ -5,7 +5,7 @@
 	autocrlf = input
 
 [credential]
-	helper = cache
+	helper = store --file ~/.cache/git/credentials
 
 [alias]
 	alias = config --get-regexp alias.*
