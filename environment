@@ -1,4 +1,4 @@
-#! /bin/sh
+# define environment variables
 
 export TARGET_HOME=$HOME
 export XDG_CONFIG_HOME=$TARGET_HOME/.config
