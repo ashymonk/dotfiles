@@ -245,7 +245,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Set background
-exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/brad-huchteman-stone-mountain.jpg
+exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/i3default
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
