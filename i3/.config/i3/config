@@ -232,9 +232,10 @@ bindsym button3 floating toggle
 bindsym $mod+button3 floating toggle
 
 # command for each window
-for_window [class="^(?i)fcitx-config"] floating enable, resize set 600 400, move position mouse
-for_window [class="^(?i)pavucontrol"] floating enable, resize set 600 400, move position mouse
-for_window [class="^(?i)pcmanfm"] floating enable, resize set 800 600
+for_window [class="^(?i)fcitx-config"] floating enable, move position mouse
+for_window [class="^(?i)pavucontrol"] floating enable, move position mouse
+for_window [class="^(?i)pcmanfm"] floating enable
+for_window [class="^(?i)feh"] floating enable
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
