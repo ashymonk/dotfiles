@@ -1,0 +1,14 @@
+#! /bin/sh
+
+screenlayout="$HOME/.screenlayout"
+default="$screenlayout/default"
+
+[ -f $default ] && $default && echo "Applied $default" && exit 0
+
+for script in $(ls -t1 $screenlayout/* | grep -v $default)
+do
+    $script && echo "Applied $script" && exit 0
+done
+
+echo "Not found valid screenlayout. Launch ARandR."
+arandr

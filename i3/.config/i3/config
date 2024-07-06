@@ -232,6 +232,7 @@ bindsym button3 floating toggle
 bindsym $mod+button3 floating toggle
 
 # command for each window
+for_window [class="^(?i)arandr"] floating enable, resize set 800 600
 for_window [class="^(?i)fcitx-config"] floating enable, move position mouse
 for_window [class="^(?i)pavucontrol"] floating enable, move position mouse
 for_window [class="^(?i)pcmanfm"] floating enable
@@ -247,6 +248,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Set background
 exec --no-startup-id feh --bg-scale $XDG_DATA_HOME/backgrounds/i3default
+
+# Set screen layout
+exec --no-startup-id screenlayout
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
