@@ -1,6 +1,10 @@
 #! /bin/sh
 set -u
 
+if ! command -v code 2>&1 >/dev/null; then
+    echo "'code' command not found" && exit 1
+fi
+
 tempfile=$(mktemp)
 trap "rm -f $tempfile" EXIT
 
@@ -12,5 +16,3 @@ do
         code --install-extension $line
     fi
 done <$XDG_CONFIG_HOME/Code/User/extensions
-
-exit 0

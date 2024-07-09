@@ -2,4 +2,3 @@
 set -eu
 
 code --list-extensions >$XDG_CONFIG_HOME/Code/User/extensions
-exit 0
