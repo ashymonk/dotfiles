@@ -1,17 +1,9 @@
 [Desktop Entry]
-Name=Rxvt Color Unicode Terminal
-Comment=Use the command line
-TryExec=run_urxvtc
-Exec=run_urxvtc
+Version=1.0
+Name=Rxvt Unicode Terminal
+Comment=An unicode capable rxvt clone client for urxvtd
+Exec=urxvtc-run
 Icon=urxvt_48x48.xpm
+Terminal=false
 Type=Application
-Categories=Utility;TerminalEmulator;
-StartupNotify=true
-Keywords=Run;
-Actions=New
-StartupWMClass=URxvt
-
-[Desktop Action New]
-Name=New Rxvt Color Unicode Terminal
-Exec=run_urxvtc
-OnlyShowIn=Unity
+Categories=System;TerminalEmulator;

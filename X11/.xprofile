@@ -8,8 +8,8 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 # i3
-if command -v urxvt 2>&1 >/dev/null; then
-    export TERMINAL="run_urxvtc"
+if command -v urxvtc 2>&1 >/dev/null; then
+    export TERMINAL=urxvtc-run
 else
     unset TERMINAL
 fi
