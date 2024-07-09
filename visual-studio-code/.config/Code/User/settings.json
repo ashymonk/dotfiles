@@ -2,5 +2,6 @@
     "files.insertFinalNewline": true,
     "editor.renderWhitespace": "all",
     "vim.useSystemClipboard": true,
-    "vim.leader": "<space>"
+    "vim.leader": "<space>",
+    "editor.fontFamily": "Cica, Symbols Nerd Font Mono"
 }
