@@ -1,7 +1,9 @@
 {
-    "files.insertFinalNewline": true,
+    "editor.fontFamily": "Cica, Symbols Nerd Font Mono",
     "editor.renderWhitespace": "all",
-    "vim.useSystemClipboard": true,
+    "files.insertFinalNewline": true,
     "vim.leader": "<space>",
-    "editor.fontFamily": "Cica, Symbols Nerd Font Mono"
+    "vim.useSystemClipboard": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.config/vim/init/10_mapping.vim"
 }
