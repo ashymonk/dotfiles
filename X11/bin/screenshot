@@ -1,0 +1,8 @@
+#! /bin/sh
+set -e
+
+if [ "$1" = "-w" ]; then
+    xwd -frame | convert xwd:- jpeg:- | xclip -selection clipboard -t image/jpeg
+else
+    xwd -root | convert xwd:- jpeg:- | xclip -selection clipboard -t image/jpeg
+fi
