@@ -2,7 +2,9 @@
 set -e
 
 if [ "$1" = "-w" ]; then
-    xwd -frame | convert xwd:- jpeg:- | xclip -selection clipboard -t image/jpeg
+    maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+elif [ "$1" = "-s" ]; then
+    maim --select | xclip -selection clipboard -t image/png
 else
-    xwd -root | convert xwd:- jpeg:- | xclip -selection clipboard -t image/jpeg
+    maim | xclip -selection clipboard -t image/png
 fi

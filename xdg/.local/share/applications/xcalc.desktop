@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=X Calc
+Comment=Scientific calculator for X
+Comment[pl]=Kalkulator naukowy dla X
+GenericName=Calculator
+GenericName[pl]=Kalkulator
+TryExec=xcalc
+Exec=xcalc
+Icon=xcalc
+Type=Application
+Categories=Utility;Calculator;
+# vi: encoding=utf-8
