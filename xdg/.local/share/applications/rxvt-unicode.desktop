@@ -1,7 +1,9 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
 Name=Rxvt Unicode Terminal
 Comment=An unicode capable rxvt clone client for urxvtd
+TryExec=urxvtc
 Exec=urxvtc-run
 Icon=urxvt_48x48.xpm
 Terminal=false
