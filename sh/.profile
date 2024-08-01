@@ -63,6 +63,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export EDITOR=vim
 
 # vim
+export EXINIT='source $HOME/.exrc'
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 # rust
