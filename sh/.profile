@@ -98,6 +98,8 @@ add_path "$HOME/.local/bin"
 add_path "$CARGO_HOME/bin"
 add_path "$GOBIN"
 add_path "$ANDROID_HOME/platform-tools"
+add_path "$ANDROID_HOME/build-tools"
+add_path "$ANDROID_HOME/cmdline-tools/latest/bin"
 add_manpath "$XDG_DATA_HOME/man"
 add_infopath "$XDG_DATA_HOME/info"
 
