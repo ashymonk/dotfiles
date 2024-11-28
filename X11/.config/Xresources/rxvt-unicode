@@ -8,6 +8,7 @@ URxvt.scrollstyle: plain
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.pointerBlank: true
+URxvt.pointerBlankDelay: 2
 URxvt.visualBell: false
 URxvt.saveLines: 3000
 URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
@@ -25,7 +26,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 !! Font list and Spacing
-URxvt.font: xft:Cica:size=11:type=Regular:antialias=true
+URxvt.font: xft:Cica:size=12:type=Regular:antialias=true
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 
@@ -36,9 +37,10 @@ URxvt.resize-font.step: 1
 !! keybind
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-s: perl:keyboard-select:activate
+URxvt.keysym.M-S: perl:keyboard-select:search
 URxvt.keysym.C-minus: resize-font:smaller
 URxvt.keysym.C-plus: resize-font:bigger
 URxvt.keysym.C-equal: resize-font:reset
 URxvt.keysym.C-question: resize-font:show
+URxvt.keysym.Shift-Insert: eval:paste_clipboard

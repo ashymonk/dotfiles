@@ -8,3 +8,6 @@
 
 !! rxvt-unicode
 #include ".config/Xresources/rxvt-unicode"
+
+!! for local settings
+#include ".config/Xresources/local"

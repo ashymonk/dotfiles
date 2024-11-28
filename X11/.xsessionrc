@@ -2,4 +2,4 @@
 
 echo "Loading ~/.xsessionrc..."
 
-. ~/.xsession
+xrdb -DHOME_DIR=$HOME -merge ~/.Xresources
