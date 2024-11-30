@@ -1,15 +1,5 @@
 # sourced by ~/.bashrc
 
-# print exit status if error
-function exit_status() {
-    status=$?
-    if [ $status -ne 0 ]; then
-        printf "[%3d]" $status
-    else
-        echo "[---]"
-    fi
-}
-
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)

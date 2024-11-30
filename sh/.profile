@@ -54,6 +54,9 @@ else
         export_lang "C"
 fi
 
+# Run Commands
+export ENV="$HOME/.shrc"
+
 # XDG base directory HOME
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -105,3 +108,6 @@ add_infopath "$XDG_DATA_HOME/info"
 
 # include user local profile
 [ -f ~/.profile.local ] && . ~/.profile.local
+
+# include profile for X
+[ -n "$DISPLAY" ] && [ -f ~/.xprofile ] && . ~/.xprofile

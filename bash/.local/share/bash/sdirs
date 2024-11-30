@@ -1,3 +1,4 @@
 export DIR_data="$HOME/.local/share"
 export DIR_config="$HOME/.config"
 export DIR_dot="$HOME/.dotfiles"
+export DIR_xstfw="$HOME/Repos/xSTRA_FW"

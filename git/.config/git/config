@@ -2,7 +2,10 @@
 	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
 	pager = LESSCHARSET=utf-8 less -x4
-	autocrlf = input
+	autocrlf = true
+	fscache = true
+	fileMode = true
+	preloadindex = true
 
 [credential]
 	helper = store --file ~/.cache/git/credentials

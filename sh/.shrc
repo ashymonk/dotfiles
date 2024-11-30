@@ -1,0 +1,59 @@
+# ~/.shrc
+
+echo "Loading ~/.shrc..." >&2
+
+# Git for Windows
+if command -v git.exe 2>&1 >/dev/null; then
+    echo "Found Git for Windows."
+
+    # checks to see if we are in a windows or linux dir
+    isWinDir() {
+        case "$(pwd -P)/" in
+        /mnt/*) return $(true);;
+        *) return $(false);;
+        esac
+    }
+
+    # wrap the git command to either run windows git or linux
+    git() {
+        if isWinDir; then
+            git.exe "$@"
+        else
+            /usr/bin/git "$@"
+        fi
+    }
+fi
+
+# Android Debug Bridge for Windows
+if command -v adb.exe 2>&1 >/dev/null; then
+    echo "Found Android Debug Bridge for Windows."
+
+    adb() {
+        adb.exe "$@"
+    }
+fi
+
+# print exit status if error
+exit_status() {
+    status=$?
+    if [ $status -ne 0 ]; then
+        printf "[%3d]" $status
+    else
+        echo "[---]"
+    fi
+}
+
+# Set prompt
+PS1='$(exit_status) $ '
+
+# Print banner if shell is Bourne Shell
+if [ "$(basename -- "$0")" != "sh" ]; then
+    return
+fi
+
+# Print banner
+echo
+echo "    Welcome to Bourne Shell!"
+echo
+fetch
+echo

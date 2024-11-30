@@ -5,6 +5,9 @@ echo "Loading ~/.bashrc..." >&2
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Load Bourne shell rc file
+[ -e "$ENV" ] && source "$ENV"
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     linux|xterm*|rxvt*|screen*|*-color)
@@ -18,11 +21,13 @@ for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
     [ -f "$rcfile" ] && source "$rcfile"
 done
 
+# Print banner if shell is Bash
+if [ ! -n "$BASH" ]; then
+    return
+fi
+
 # Print banner
-echo "  _               _     "
-echo " | |__   __ _ ___| |__  "
-echo " | '_ \ / _\` / __| '_ \ "
-echo " | |_) | (_| \__ \ | | |"
-echo " |_.__/ \__,_|___/_| |_|"
-echo "                        "
+echo
+echo "    Welcome to Bash!"
+echo
 fetch
