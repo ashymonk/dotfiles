@@ -2,7 +2,7 @@
 	quotePath = false
 	editor = vim -c \"set fenc=utf-8\"
 	pager = LESSCHARSET=utf-8 less -x4
-	autocrlf = true
+	autocrlf = input
 	fscache = true
 	fileMode = true
 	preloadindex = true
