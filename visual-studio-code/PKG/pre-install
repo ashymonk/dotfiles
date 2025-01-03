@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 set -u
 
 mkdir -p "$XDG_CONFIG_HOME/Code"

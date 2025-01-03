@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # Print wm name function.
 print_wm_name() {

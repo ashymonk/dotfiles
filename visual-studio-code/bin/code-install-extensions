@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 set -u
 
 if ! command -v code 2>&1 >/dev/null; then

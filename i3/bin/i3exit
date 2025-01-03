@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 lock() {
     if command -v dm-tool 2>&1 >/dev/null; then

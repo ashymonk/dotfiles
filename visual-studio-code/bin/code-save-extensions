@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 set -eu
 
 code --list-extensions >$XDG_CONFIG_HOME/Code/User/extensions

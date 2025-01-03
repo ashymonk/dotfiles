@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 systemctl --user enable greenclip.service
 systemctl --user start greenclip.service
