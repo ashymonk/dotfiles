@@ -1,5 +1,12 @@
 #! /bin/sh
 
+# Print wm name function.
+print_wm_name() {
+    local wm_window_id=$(xprop -root _NET_SUPPORTING_WM_CHECK 2>/dev/null | sed 's/^.*# //')
+    local wm_name=$(xprop -id $wm_window_id _NET_WM_NAME 2>/dev/null | sed 's/.*"\([^"]*\)".*/\1/')
+    echo $wm_name
+}
+
 # Get distribution name.
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -13,11 +20,13 @@ else
 fi
 
 # Get window manager name.
+desktop=Unknown
 if [ -n "$DISPLAY" ]; then
     if [ -n "$XDG_CURRENT_DESKTOP" ]; then
         desktop="$XDG_CURRENT_DESKTOP"
     else
-        desktop=Unknown
+        wm_name="$(print_wm_name)"
+        [ -n "$wm_name" ] && desktop="$wm_name"
     fi
 else
     desktop=None
