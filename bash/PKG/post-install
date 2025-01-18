@@ -1,0 +1,6 @@
+#!/bin/sh
+set -u
+
+if [ ! -f "$XDG_DATA_HOME/bash/sdirs" ]; then
+    cp "$XDG_DATA_HOME/bash/sdirs.template" "$XDG_DATA_HOME/bash/sdirs"
+fi
