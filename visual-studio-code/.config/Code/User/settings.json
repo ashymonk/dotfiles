@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Cica, Symbols Nerd Font Mono",
+    "editor.fontFamily": "Ricty Diminished, Symbols Nerd Font Mono",
     "editor.renderWhitespace": "all",
     "files.insertFinalNewline": true,
     "vim.leader": "<space>",

@@ -12,10 +12,10 @@ URxvt.pointerBlankDelay: 2
 URxvt.visualBell: false
 URxvt.saveLines: 3000
 URxvt.cutchars: "\\`\"'&()*,;<=>?@[]^{|}#$%+!:"
-URxvt.inheritPixmap: true
-URxvt.transparent: true
-URxvt.shading: 15
-URxvt.fading: 20
+URxvt.inheritPixmap: false
+URxvt.transparent: false
+URxvt.shading: 0
+URxvt.fading: 15
 URxvt.iconFile: HOME_DIR/.icons/urxvt_48x48.xpm
 
 !! scroll back
@@ -26,9 +26,9 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 !! Font list and Spacing
-URxvt.font: xft:Cica:size=12:type=Regular:antialias=true
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
+URxvt.font: xft:Ricty Diminished:size=14:style=Regular:antialias=true
+URxvt.letterSpace: -1
+URxvt.lineSpace: 2
 
 !! perl extension
 URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select,-searchable-scrollback,resize-font

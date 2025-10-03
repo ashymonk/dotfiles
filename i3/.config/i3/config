@@ -15,7 +15,7 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Cica, Symbols Nerd Font 13
+font pango:Ricty Diminished, Symbols Nerd Font 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -248,6 +248,9 @@ for_window [class="^(?i)pcmanfm"] floating enable
 for_window [class="^(?i)feh"] floating enable
 for_window [class="^(?i)galculator"] floating enable
 for_window [class="^(?i)xarchiver"] floating enable, move position mouse
+
+# Enable gaps
+gaps inner 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart

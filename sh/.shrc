@@ -43,17 +43,21 @@ exit_status() {
     fi
 }
 
-# Set prompt
-PS1='$(exit_status) $ '
-
 # Print banner if shell is Bourne Shell
 if [ "$(basename -- "$0")" != "sh" ]; then
     return
 fi
+
+# Set HOSTNAME
+export HOSTNAME=$(uname -n)
+
+# Set prompt
+PS1='
+${USER}@${HOSTNAME}: ${PWD}
+$(exit_status) \$ '
 
 # Print banner
 echo
 echo "    Welcome to Bourne Shell!"
 echo
 fetch
-echo

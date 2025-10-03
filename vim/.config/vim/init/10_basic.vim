@@ -122,12 +122,12 @@ if has('gui_running')
 	set guioptions-=T
 
 	if has('gui_win32')
-		set guifont=Cica:h11
-		set guifontwide=Cica:h11
+		set guifont=Ricty\ Diminished:h13
+		set guifontwide=Ricty\ Diminished:h13
 		set renderoptions=type:directx,renmode:5
 	elseif has('gui_gtk2') || has('gui_gtk3')
-		set guifont=Cica\ 11
-		set guifontwide=Cica\ 11
+		set guifont=Ricty\ Diminished\ 13
+		set guifontwide=Ricty\ Diminished\ 13
 	endif
 endif
 
