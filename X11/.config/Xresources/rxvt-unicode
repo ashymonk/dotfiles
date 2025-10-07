@@ -16,7 +16,7 @@ URxvt.inheritPixmap: false
 URxvt.transparent: false
 URxvt.shading: 0
 URxvt.fading: 15
-URxvt.iconFile: HOME_DIR/.icons/urxvt_48x48.xpm
+URxvt.iconFile: HOME_DIR/.local/share/icons/hicolor/48x48/apps/urxvt.xpm
 
 !! scroll back
 URxvt.scrollTtyOutput: false
@@ -26,9 +26,9 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 !! Font list and Spacing
-URxvt.font: xft:Ricty Diminished:size=14:style=Regular:antialias=true
-URxvt.letterSpace: -1
-URxvt.lineSpace: 2
+URxvt.font: xft:Ricty Diminished:size=13:style=Regular:antialias=true
+URxvt.letterSpace: 0
+URxvt.lineSpace: 1
 
 !! perl extension
 URxvt.perl-ext-common: default,selection-to-clipboard,confirm-paste,keyboard-select,-searchable-scrollback,resize-font

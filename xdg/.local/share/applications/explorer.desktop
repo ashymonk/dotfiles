@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Windows Explorer
+GenericName=File Manager
+Comment=Windows file manager for browsing folders
+Exec=explorer.exe %U
+TryExec=explorer.exe
+Icon=explorer
+Terminal=false
+StartupNotify=true
+Categories=Utility;FileManager;
+MimeType=inode/directory;

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# search unused display
+found=0
+for i in $(seq 0 10); do
+    if ! ss -l | grep -q "/tmp/.X11-unix/X$i"; then
+        echo "Unused DISPLAY is :$i"
+        found=1
+        break
+    fi
+done
+
+# Not found
+[ $found == 0 ] && echo "Not found available display..." >&2 && exit 1
+
+# start xephyr
+startx -- /usr/bin/Xephyr :$i -resizeable -screen 1280x720
