@@ -1,46 +1,49 @@
 # ~/.profile
 
-echo "Loading ~/.profile..."
+echo "Loading ~/.profile..." >&2
 
 # Functions
 export_lang() {
-    if locale -a | grep -q "^$1$"; then
-        export LANG=$1
+    if LC_ALL=C locale -a | grep -qx "$1"; then
+        LANG="$1"
+        export LANG
         return 0
-    else
-        return 1
     fi
+    return 1
 }
+
 add_path() {
-    path="$(readlink -f "$1")"
-    [ -d "$path" ] &&
-        case ":$PATH:" in
-          *":$path:"*) :;; # already there
-          *) export PATH="$path:$PATH";; # add path
-        esac
+    _path=$(readlink -f "$1" 2>/dev/null || printf '%s\n' "$1")
+    [ -d "$_path" ] || return 0
+    case ":$PATH:" in
+        *":$_path:"*) ;;  # already there
+        *) PATH="$_path${PATH:+:$PATH}"; export PATH ;;
+    esac
 }
+
 add_manpath() {
-    path="$(readlink -f "$1")"
-    [ -d "$path" ] &&
-        case ":$MANPATH:" in
-          *":$path:"*) :;; # already there
-          *) export MANPATH="$path:$MANPATH";; # add path
-        esac
+    _path=$(readlink -f "$1" 2>/dev/null || printf '%s\n' "$1")
+    [ -d "$_path" ] || return 0
+    case ":$MANPATH:" in
+        *":$_path:"*) ;;  # already there
+        *) MANPATH="$_path${MANPATH:+:$MANPATH}"; export MANPATH ;;
+    esac
 }
+
 add_infopath() {
-    path="$(readlink -f "$1")"
-    [ -d "$path" ] &&
-        case ":$INFOPATH:" in
-          *":$path:"*) :;; # already there
-          *) export INFOPATH="$path:$INFOPATH";; # add path
-        esac
+    _path=$(readlink -f "$1" 2>/dev/null || printf '%s\n' "$1")
+    [ -d "$_path" ] || return 0
+    case ":$INFOPATH:" in
+        *":$_path:"*) ;;  # already there
+        *) INFOPATH="$_path${INFOPATH:+:$INFOPATH}"; export INFOPATH ;;
+    esac
 }
 
 # umask
-if [ "`id -ur`" -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
-        umask 002
+if [ "$(id -ur)" -gt 199 ] && [ "$(id -gn)" = "$(id -un)" ]; then
+    umask 002
 else
-        umask 022
+    umask 022
 fi
 
 # Language
@@ -72,7 +75,10 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 # rust
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export RUST_SRC_PATH="$(rustc --print sysroot 2>/dev/null)/lib/rustlib/src/rust/src"
+if command -v rustc >/dev/null 2>&1; then
+    RUST_SRC_PATH="$(rustc --print sysroot 2>/dev/null)/lib/rustlib/src/rust/src"
+    export RUST_SRC_PATH
+fi
 
 # go
 export GOPATH="$XDG_DATA_HOME/go"
@@ -107,7 +113,7 @@ add_manpath "$XDG_DATA_HOME/man"
 add_infopath "$XDG_DATA_HOME/info"
 
 # include user local profile
-[ -f ~/.profile.local ] && . ~/.profile.local
+[ -f "$HOME/.profile.local" ] && . "$HOME/.profile.local"
 
 # include profile for X
-[ -n "$DISPLAY" ] && [ -f ~/.xprofile ] && . ~/.xprofile
+[ -n "$DISPLAY" ] && [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"

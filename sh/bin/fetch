@@ -2,9 +2,17 @@
 
 # Print wm name function.
 print_wm_name() {
-    local wm_window_id=$(xprop -root _NET_SUPPORTING_WM_CHECK 2>/dev/null | sed 's/^.*# //')
-    local wm_name=$(xprop -id $wm_window_id _NET_WM_NAME 2>/dev/null | sed 's/.*"\([^"]*\)".*/\1/')
-    echo $wm_name
+    if ! command -v xprop >/dev/null 2>&1; then
+        return 0
+    fi
+
+    _wm_window_id=$(xprop -root _NET_SUPPORTING_WM_CHECK 2>/dev/null | sed 's/^.*# //')
+    [ -n "$_wm_window_id" ] || return 0
+
+    _wm_name=$(xprop -id "$_wm_window_id" _NET_WM_NAME 2>/dev/null | sed 's/.*"\([^"]*\)".*/\1/')
+    [ -n "$_wm_name" ] || return 0
+
+    printf '%s\n' "$_wm_name"
 }
 
 # Get distribution name.
@@ -13,20 +21,21 @@ if [ -f /etc/os-release ]; then
 elif [ -f /usr/lib/os-release ]; then
     . /usr/lib/os-release
 fi
+
 if [ -n "$PRETTY_NAME" ]; then
-    distro="$PRETTY_NAME"
+    distro=$PRETTY_NAME
 else
     distro=Unknown
 fi
 
-# Get window manager name.
+# Get window manager / desktop name.
 desktop=Unknown
 if [ -n "$DISPLAY" ]; then
     if [ -n "$XDG_CURRENT_DESKTOP" ]; then
-        desktop="$XDG_CURRENT_DESKTOP"
+        desktop=$XDG_CURRENT_DESKTOP
     else
-        wm_name="$(print_wm_name)"
-        [ -n "$wm_name" ] && desktop="$wm_name"
+        wm_name=$(print_wm_name)
+        [ -n "$wm_name" ] && desktop=$wm_name
     fi
 else
     desktop=None
@@ -34,17 +43,24 @@ fi
 
 # Get uptime
 uptime=Unknown
-if command -v uptime 2>&1 >/dev/null; then
-    uptime=$(uptime -p | sed 's/up //')
+if command -v uptime >/dev/null 2>&1; then
+    if up_out=$(LC_ALL=C uptime -p 2>/dev/null); then
+        uptime=${up_out#up }
+    else
+        uptime=$(uptime 2>/dev/null)
+    fi
 fi
 
+# Console
+console=$(tty 2>/dev/null || echo 'N/A')
+
 # Print system information.
-echo " * Login:   $USER@$(uname -n)"
+echo " * Login:   ${USER}@$(uname -n)"
 echo " * Kernel:  $(uname -srm)"
 echo " * Distro:  $distro"
 echo " * Desktop: $desktop"
-echo " * Term:    $TERM"
-echo " * Console: $(tty)"
-echo " * Shell:   $SHELL"
+echo " * Term:    ${TERM:-Unknown}"
+echo " * Console: $console"
+echo " * Shell:   ${SHELL:-Unknown}"
 echo " * Uptime:  $uptime"
 echo " * Date:    $(date '+%Y/%m/%d %a %H:%M:%S')"

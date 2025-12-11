@@ -6,9 +6,9 @@ echo "Loading ~/.bashrc..." >&2
 [[ $- != *i* ]] && return
 
 # Load Bourne shell rc file
-[ -e "$ENV" ] && source "$ENV"
+[ -n "$ENV" ] && [ -e "$ENV" ] && source "$ENV"
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt flag
 case "$TERM" in
     linux|xterm*|rxvt*|screen*|*-color)
         __color_prompt=yes
@@ -16,18 +16,16 @@ case "$TERM" in
 esac
 
 echo "Loading bashrc.d files..." >&2
-
-for rcfile in $XDG_CONFIG_HOME/bash/rc.d/*.bash; do
-    [ -f "$rcfile" ] && source "$rcfile"
-done
-
-# Print banner if shell is Bash
-if [ ! -n "$BASH" ]; then
-    return
+bash_rc_dir=${XDG_CONFIG_HOME:-$HOME/.config}/bash/rc.d
+if [ -d "$bash_rc_dir" ]; then
+    for rcfile in "$bash_rc_dir"/*.bash; do
+        [ -f "$rcfile" ] && source "$rcfile"
+    done
 fi
+unset bash_rc_dir
 
 # Print banner
 echo
 echo "    Welcome to Bash!"
 echo
-fetch
+command -v fetch >/dev/null 2>&1 && fetch
